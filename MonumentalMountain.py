@@ -1,4 +1,4 @@
-import sys,time,random
+import sys,time,random,os,MM_L,MM_R,MM_F
 # This is MonumentalMountain Aplpha v0.0.1
 # This "Alpha Game Programm" (CC-BY-NO) was created by "Javier Fuentes-Hermoso"
 # MonumentalMountain is licenced under the GNU GPLv3 licence by GAMAX-INTERACTIVE, part of the JAI-INNOVATIONS
@@ -29,20 +29,38 @@ print("")
 print("")
 print("")
 
-name = input("Welcome! Who is the lucky adventurer we have this cerntury?:    ")
-print("Welcome", name, "to the Monumental Mountain. We will lead you through the terrain and youu have to make decisions as you go along and please ansewer in all lowercase.")
+print("Welcome to the Monumental Mountain. We will lead you through the terrain and youu have to make decisions as you go along and please ansewer in all lowercase.")
 
 yesno1 = input("Are you ready?")
-yes = ("yes")
-no = ("no")
 
 if yesno1 == "yes":
-    typing_speed = 50
-    def slow_type(t):
-        for l in t:
-            sys.stdout.write(l)
-            sys.stdout.flush()
-            time.sleep(random.random()*10.0/typing_speed)
-        print ('Starrting . . . . .')
+    print_slow("Starting . . . . . . . . . . . . . . . .")
 else:
     quit()
+
+
+os.system('cls' if os.name == 'nt' else "printf '\033c'")
+
+print_slow("You're lost scared, without control. Like being trapped in a nightmare where you can't stop falling. Lights colours and feelings that you wouldn't even be able to imagine fly past you at imposible speeds while reality and imagination merge into a flush of white that blanks everything out as you hit the floor")
+
+print_slow("you don't remember anything, not even your name or age. All you know is that you are at the edge of a crossroads and that something is forcing you forewards")
+name = input("After some thinking you decide to refer to yourself as:   ")
+
+print("")
+print("")
+
+print_slow("You look forewards to the  crossroads. A path directly infront of you leads to a giant mountain half in a field that is half hiding a bright sun.")
+print_slow("To the left there is a path leading to a live looking forrest under stormy clouds and with a dark atmosphere to it.")
+print_slow("The left path leads to a wide dessert with a few cannyons and a heat that can be felt from here.")
+
+dir1 = input("You decide to go:   ")
+
+if dir1 == "left":
+    print("Even though you might not find water there you think it is the best option for refuge.")
+    MM_L
+elif dir1 == "forewards":
+    print("You think that this is the safest option and that you are sure to find everything you need there.")
+    MM_F
+elif dir1 == "right":
+    print("You decide that this is the best option for food and that you will be able to survive easily there.")
+   MM_R
