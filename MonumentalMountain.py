@@ -6,7 +6,7 @@ def print_slow(str):
     for letter in str:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(0.3)
+        time.sleep(0.05)
 
 print_slow("Welcome to MonumentalMountain Alpha v0.0.1. Created by GAMAX-INTERACTIVE")
 print("")
@@ -30,14 +30,14 @@ print("")
 print("")
 
 name = input("Welcome! Who is the lucky adventurer we have this cerntury?:    ")
-print_slow("Welcome", name, "to the Monumental Mountain. We will lead you through the terrain and youu have to make decisions as you go along and please ansewer in all lowercase.")
+print("Welcome", name, "to the Monumental Mountain. We will lead you through the terrain and youu have to make decisions as you go along and please ansewer in all lowercase.")
 
 yesno1 = input("Are you ready?")
 yes = ("yes")
 no = ("no")
 
-if yesno1 == yes:
-    typing_speed = 50 #wpm
+if yesno1 == "yes":
+    typing_speed = 50
     def slow_type(t):
         for l in t:
             sys.stdout.write(l)
