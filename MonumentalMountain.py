@@ -14,7 +14,7 @@ print("")
 print_slow("Legends have been told about the Mysterious Monumental Mountain, a realm only accessible though sleep in very specific circumstances.")
 print("")
 
-print_slow("A place made at the begining of humanity by the supreme planetary council of intelligence to test humankind until they are balanced enough as a species to join the coulcil")
+print_slow("A place made at the begining of humanity by the supreme planetary council of intelligence to test humankind until they are balanced enough as a species to join the council")
 print("")
 
 print_slow("You, a simple human who have only read about these things in medieval library books, go to bed in peace without the knowledge that exactly at midnight of the summer equinox of 2023 eveyone on the dark and light side of the Erath unconciously decide to sleep all at the same time.")
@@ -41,15 +41,17 @@ else:
 
 os.system('cls' if os.name == 'nt' else "printf '\033c'")
 
-print_slow("You're lost scared, without control. Like being trapped in a nightmare where you can't stop falling. Lights colours and feelings that you wouldn't even be able to imagine fly past you at imposible speeds while reality and imagination merge into a flush of white that blanks everything out as you hit the floor")
+print_slow("You're lost scared, without control. Like being trapped in a nightmare where you can't stop falling. Lights colours and feelings that you wouldn't even be able to imagine fly past you at imposible speeds while reality and imagination merge into a flush of white that blanks everything out as you hit the floor.")
 
-print_slow("you don't remember anything, not even your name or age. All you know is that you are at the edge of a crossroads and that something is forcing you forewards")
+print("")
+
+print_slow("You don't remember anything, not even your name or age. All you know is that you are at the edge of a crossroads and that something is forcing you forewards")
 name = input("After some thinking you decide to refer to yourself as:   ")
 
 print("")
 print("")
 
-print_slow("You look forewards to the  crossroads. A path directly infront of you leads to a giant mountain half in a field that is half hiding a bright sun.")
+print_slow("You look forewards to the  crossroads. A path directly infront of you leads to a giant mountain in a field that is half hiding a bright sun.")
 print_slow("To the left there is a path leading to a live looking forrest under stormy clouds and with a dark atmosphere to it.")
 print_slow("The left path leads to a wide dessert with a few cannyons and a heat that can be felt from here.")
 
