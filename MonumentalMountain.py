@@ -63,4 +63,4 @@ elif dir1 == "forewards":
     MM_F
 elif dir1 == "right":
     print("You decide that this is the best option for food and that you will be able to survive easily there.")
-   MM_R
+    MM_R
