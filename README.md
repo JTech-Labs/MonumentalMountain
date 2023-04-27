@@ -7,7 +7,7 @@ This programm is writen by British secondary schoolers in our spare time so plea
 
 ## Releases
 
-For the Downloads please go to the [*`releases`*](https://github.com/JTech-Labs/MonumentalMountain/releases) section of the repo and just run the executable for your respective OS (Currently only Windows). There have been no releses currently. Alpha releases will be codenamed `"Quantum Rock"`, Beta releases will be codenamed `"Collossal Pebble"` and Stable releases will have their own codename.
+For the Downloads please go to the [*`releases`*](https://github.com/JTech-Labs/MonumentalMountain/releases) section of the repo and just run the executable for your respective OS (Currently only Windows). Alpha releases will be codenamed `"Quantum Rock"`, Beta releases will be codenamed `"Collossal Pebble"` and Stable releases will have their own codename.
 
 ---
 
