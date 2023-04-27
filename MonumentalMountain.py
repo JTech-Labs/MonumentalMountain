@@ -20,16 +20,17 @@ print('\n')
 print_slow("You, a simple human who have only read about these things in medieval library books, go to bed in peace without the knowledge that exactly at midnight of the summer equinox of 2023 eveyone on the dark and light side of the Earth unconciously decide to sleep all at the same time.")
 print('\n')
 
-print_slow("Only the human that is most conciously unprepared by subconciously ready that would be chosen to go and stand for their species.")
+print_slow("Only the human that is most conciously unprepared by subconciously ready that would be chosen to go and stand for their species. ")
 
 print_slow("And that one specific person, this one specific time happens to be...")
+print('\n')
 print_slow("You")
 
 print('\n')
 print('\n')
 print('\n')
 
-print("Welcome to the Monumental Mountain. We will lead you through the terrain and youu have to make decisions as you go along and please ansewer in all lowercase.")
+print("Welcome to the Monumental Mountain. We will lead you through the terrain and youu have to make decisions as you go along and please answer in all lowercase.")
 
 yesno1 = input("Are you ready?: ")
 
@@ -52,7 +53,7 @@ name = input("After some thinking you decide to refer to yourself as:   ")
 print('\n')
 print('\n')
 
-print_slow("You look forewards to the  crossroads. A path directly infront of you leads to a giant mountain in a field that is half hiding a bright sun. ")
+print_slow("You look forewards to the crossroads. A path directly infront of you leads to a giant mountain in a field that is half hiding a bright sun. ")
 print_slow("To the left there is a path leading to a live looking forrest under stormy clouds and with a dark atmosphere to it. ")
 print_slow("The left path leads to a wide dessert with a few cannyons and a heat that can be felt from here.")
 
