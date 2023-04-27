@@ -65,3 +65,6 @@ elif dir1 == "forewards":
     print_slow("You think that this is the safest option and that you are sure to find everything you need there.")
 elif dir1 == "right":
     print_slow("You decide that this is the best option for food and that you will be able to survive easily there.")
+else:
+    print(f"Input invalid, sorry {name}, you lose...")
+    quit()
