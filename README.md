@@ -7,6 +7,8 @@ This programm is writen by British secondary schoolers in our spare time so plea
 
 ## Versions
 
-For the Downloads please go to the [versions](https://github.com/JTech-Labs/MonumentalMountain/releases) section of the repo and just run the executable for your respective OS (Currently only Windows).
+For the Downloads please go to the [versions](https://github.com/JTech-Labs/MonumentalMountain/releases) section of the repo and just run the executable for your respective OS (Currently only Windows). There have been no releses currently.
+
+---
 
 Plese open an issue or make a pull request if you feel something needs adding or changing, the programming team or kind people of the community will try to repond as soon as possible.
