@@ -2,6 +2,22 @@ import sys,time,random,os
 # This is MonumentalMountain Aplpha v0.0.1
 # This "Alpha Game Programm" (CC-BY-NO) was created by "Javier Fuentes-Hermoso"
 # MonumentalMountain is licenced under the GNU GPLv3 licence by GAMAX-INTERACTIVE, part of the JAI-INNOVATIONS
+def stop_all():
+    print(f"Input invalid, sorry {name}, you lose...")
+    quit()
+
+inventory = str(0)
+health = int(100)
+protection = int(0)
+power = int(1)
+magic = int(0)
+
+while True:
+    if input() == ';':
+        print(f"\n {inventory} \n {health} \n {protection} \n {power} \n {magic} \n")
+        continue
+
+
 def print_slow(str):
     for letter in str:
         sys.stdout.write(letter)
@@ -64,6 +80,25 @@ dir1 = input("You decide to go:   ")
 
 if dir1 == "left":
     print_slow("Even though you might not find water there you think it is the best option for refuge.")
+    while True:
+            print_slow("Even though you might not find water there you think it is the best option for refuge.")
+            time.sleep(5)
+            
+            print_slow("You slowly stroll forewards, brushing the sand with your feet as the sun scorches the back of your neck.")
+            print("\n")
+            
+            print_slow("You see a set of large rocks that looks like could be good for refuge and might be a bit humid. You can also see a small shadow far away and think it could be an oasis. Or you could carry on just incase you find anything better.")
+            print('\n')
+            
+            dir2 = input("You chose to go")
+            if dir2 =='shadow':
+                print_slow("")
+            
+            elif dir2 == 'rocks':
+                print_slow("")
+            
+            elif dir2 == 'forewards':
+                print_slow("")
 elif dir1 == "forewards":
     print_slow("You are filled with a burning curiosity and decide to make headway for the mountain.")
 elif dir1 == "right":
