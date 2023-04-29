@@ -17,7 +17,7 @@ print('\n')
 print_slow("A place created at the dawn of humankind by the Supreme Planetary Council of Intelligence to test humankind until they are advanced enough as a species to join the Supreme Council")
 print('\n')
 
-print_slow("You, a simple human who have only read about this mysterious realm in medieval history books, go to bed in peace without the knowledge that at exactly midnight of the summer equinox of 2023 eveyone on the dark and light side of the Earth unconciously decide to sleep all at the same time.")
+print_slow("You, a simple human who have only read about this mysterious realm in medieval history books, go to bed in peace without the knowledge that at exactly midnight of the summer equinox of 2023 eveyone on the dark and light side of the Earth unconciously decides to sleep all at the same time.")
 print('\n')
 
 print_slow("Only the human that is most conciously unprepared but subconciously ready would be chosen to go and stand for their species. ")
@@ -30,7 +30,7 @@ print('\n')
 print('\n')
 print('\n')
 
-print("Welcome to the Monumental Mountain. We will lead you through the terrain, but you must make vital decisions as you progress")
+print("Welcome to the Monumental Mountain. We will lead you through the terrain, but you must make the vital decisions as you progress")
 
 print("Please type in all lowercase")
 
