@@ -1,22 +1,13 @@
-import sys,time,random,os
+import sys, time, random, os, Status.py
+from pynput.keyboard import Key, Listener
 # This is MonumentalMountain Aplpha v0.0.1
 # This "Alpha Game Programm" (CC-BY-NO) was created by "Javier Fuentes-Hermoso"
 # MonumentalMountain is licenced under the GNU GPLv3 licence by GAMAX-INTERACTIVE, part of the JAI-INNOVATIONS
+# os.system('start powershell ` "-noexit", ` "`$host.ui.RawUI.WindowTitle` = \'list files and goto SO\'; ` ls ;` Start-Process chrome.exe https://stackoverflow.com/"')
+
 def stop_all():
     print(f"Input invalid, sorry {name}, you lose...")
     quit()
-
-inventory = str(0)
-health = int(100)
-protection = int(0)
-power = int(1)
-magic = int(0)
-
-while True:
-    if input() == ';':
-        print(f"\n {inventory} \n {health} \n {protection} \n {power} \n {magic} \n")
-        continue
-
 
 def print_slow(str):
     for letter in str:
@@ -50,7 +41,7 @@ print("Welcome to the Monumental Mountain. We will lead you through the terrain,
 
 print("Please type in all lowercase")
 
-    yesno1 = input("Are you ready?: ")
+yesno1 = input("Are you ready?: ")
 
 if yesno1 == "yes":
     print_slow("Starting . . . . . . . . . . . . . . . .")
@@ -60,7 +51,7 @@ else:
 
 os.system('cls' if os.name == 'nt' else "printf '\033c'")
 
-print_slow("You're lost and scared, you've lost control. You are trapped in a nightmare where you can't stop falling. Incomprehensible lights, colours and emotions fly past you at impossible speeds while reality and imagination merge into a flash of white that overwhelms you as you collide with the ground.")
+print_slow("You're lost and scared, out of control. You are trapped in a nightmare where you can't stop falling. Incomprehensible lights, colours and emotions fly past you at impossible speeds while reality and imagination merge into a flash of white that overwhelms you as you collide with the ground.")
 
 print('\n')
 
@@ -79,30 +70,33 @@ print('\n')
 dir1 = input("You decide to go:   ")
 
 if dir1 == "left":
-    print_slow("Even though you might not find water there you think it is the best option for refuge.")
+    print_slow("Even though you might not find water there you think it is the best option for refuge. ")
     while True:
-            print_slow("Even though you might not find water there you think it is the best option for refuge.")
-            time.sleep(5)
-            
-            print_slow("You slowly stroll forewards, brushing the sand with your feet as the sun scorches the back of your neck.")
-            print("\n")
-            
-            print_slow("You see a set of large rocks that looks like could be good for refuge and might be a bit humid. You can also see a small shadow far away and think it could be an oasis. Or you could carry on just incase you find anything better.")
-            print('\n')
-            
-            dir2 = input("You chose to go")
-            if dir2 =='shadow':
-                print_slow("")
-            
-            elif dir2 == 'rocks':
-                print_slow("")
-            
-            elif dir2 == 'forewards':
-                print_slow("")
+        print_slow("You slowly stroll forewards, brushing the sand with your feet as the sun scorches the back of your neck.")
+        print("\n")
+        
+        print_slow("You see a set of large rocks that looks like could be good for refuge and might be a bit humid. You can also see a small shadow far away and think it could be an oasis. Or you could carry on just incase you find anything better.")
+        print('\n')
+        
+        dir2 = input("You chose to go:  ")
+        if dir2 =='shadow':
+            print_slow("")
+        
+        elif dir2 == 'rocks':
+            print_slow("")
+        
+        elif dir2 == 'forewards':
+            print_slow("")
+
+        else:
+            stop_all()
+
 elif dir1 == "forewards":
     print_slow("You are filled with a burning curiosity and decide to make headway for the mountain.")
+
 elif dir1 == "right":
     print_slow("You decide that this is the best option for food and that you will be able to survive easily there.")
+
 else:
     print(f"Input invalid, sorry {name}, you lose...")
-    quit()
+    stop_all()
