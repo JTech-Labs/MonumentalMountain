@@ -11,18 +11,18 @@ def print_slow(str):
 print_slow("Welcome to MonumentalMountain Alpha v0.0.1. Created by GAMAX-INTERACTIVE")
 print('\n')
 
-print_slow("Legends have been told about the Mysterious Monumental Mountain, a realm only accessible though sleep in very specific circumstances.")
+print_slow("Legends have been told about the Mysterious Monumental Mountain, a realm accessible only while in a certain mental state that must be reached through sleep.")
 print('\n')
 
-print_slow("A place made at the begining of humanity by the supreme planetary council of intelligence to test humankind until they are balanced enough as a species to join the council")
+print_slow("A place created at the dawn of humankind by the Supreme Planetary Council of Intelligence to test humankind until they are advanced enough as a species to join the Supreme Council")
 print('\n')
 
-print_slow("You, a simple human who have only read about these things in medieval library books, go to bed in peace without the knowledge that exactly at midnight of the summer equinox of 2023 eveyone on the dark and light side of the Earth unconciously decide to sleep all at the same time.")
+print_slow("You, a simple human who have only read about this mysterious realm in medieval history books, go to bed in peace without the knowledge that at exactly midnight of the summer equinox of 2023 eveyone on the dark and light side of the Earth unconciously decide to sleep all at the same time.")
 print('\n')
 
-print_slow("Only the human that is most conciously unprepared by subconciously ready that would be chosen to go and stand for their species. ")
+print_slow("Only the human that is most conciously unprepared but subconciously ready would be chosen to go and stand for their species. ")
 
-print_slow("And that one specific person, this one specific time happens to be...")
+print_slow("And that one specific person,  at this one specific time happens to be...")
 print('\n')
 print_slow("You")
 
@@ -30,9 +30,11 @@ print('\n')
 print('\n')
 print('\n')
 
-print("Welcome to the Monumental Mountain. We will lead you through the terrain and youu have to make decisions as you go along and please answer in all lowercase.")
+print("Welcome to the Monumental Mountain. We will lead you through the terrain, but you must make vital decisions as you progress")
 
-yesno1 = input("Are you ready?: ")
+print("Please type in all lowercase")
+
+    yesno1 = input("Are you ready?: ")
 
 if yesno1 == "yes":
     print_slow("Starting . . . . . . . . . . . . . . . .")
