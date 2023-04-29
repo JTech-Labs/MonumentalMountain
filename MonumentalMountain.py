@@ -44,20 +44,20 @@ else:
 
 os.system('cls' if os.name == 'nt' else "printf '\033c'")
 
-print_slow("You're lost scared, without control. Like being trapped in a nightmare where you can't stop falling. Lights colours and feelings that you wouldn't even be able to imagine fly past you at imposible speeds while reality and imagination merge into a flush of white that blanks everything out as you hit the floor.")
+print_slow("You're lost and scared, you've lost control. You are trapped in a nightmare where you can't stop falling. Incomprehensible lights, colours and emotions fly past you at impossible speeds while reality and imagination merge into a flash of white that overwhelms you as you collide with the ground.")
 
 print('\n')
 
-print_slow("You don't remember anything, not even your name or age. All you know is that you are at the edge of a crossroads and that something is forcing you forewards")
+print_slow("You don't remember anything, not even your name or age. All you know is that you are at the edge of a crossroads and that something is forcing you to move forewards")
 print('\n')
-name = input("After some thinking you decide to refer to yourself as:   ")
+name = input("After some consideration, you decide to refer to yourself as:   ")
 
 print('\n')
 print('\n')
 
-print_slow("You look forewards to the crossroads. A path directly infront of you leads to a giant mountain in a field that is half hiding a bright sun. ")
-print_slow("To the left there is a path leading to a live looking forrest under stormy clouds and with a dark atmosphere to it. ")
-print_slow("The left path leads to a wide dessert with a few cannyons and a heat that can be felt from here.")
+print_slow("You look forewards, at the crossroads. A path directly ahead of you leads to a giant grey,  snow-capped mountain shrouded by cloud which half hides the bright sun. ")
+print_slow("To the left there is a path leading to a green and life-filled forest. The treetops are shrouded by storm clouds and a dark atmosphere emanates from it. ")
+print_slow("The left path leads to a barren and arid desert with a few littered canyons and scorching heat that can be felt from here.")
 
 print('\n')
 dir1 = input("You decide to go:   ")
@@ -65,7 +65,7 @@ dir1 = input("You decide to go:   ")
 if dir1 == "left":
     print_slow("Even though you might not find water there you think it is the best option for refuge.")
 elif dir1 == "forewards":
-    print_slow("You think that this is the safest option and that you are sure to find everything you need there.")
+    print_slow("You are filled with a burning curiosity and decide to make headway for the mountain.")
 elif dir1 == "right":
     print_slow("You decide that this is the best option for food and that you will be able to survive easily there.")
 else:
