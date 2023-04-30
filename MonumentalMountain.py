@@ -15,6 +15,7 @@ def playerstatus():
 
 def stop_all():
     print(f"Input invalid, sorry {name}, you lose...")
+    time.sleep(5)
     quit()
 
 def print_slow(str):
@@ -68,14 +69,14 @@ print('\n')
 name = input("After some consideration, you decide to refer to yourself as:   ")
 
 print('\n')
-print("The first thing you do is notice a cuff bracelet made from gold and copper with incrusted diamonds that contains a lot of weird engraved text in some kind of foreign language not known to man and something in English, it says:")
+print_slow("The first thing you do is notice a cuff bracelet made from gold and copper with incrusted diamonds that contains a lot of weird engraved text in some kind of foreign language not known to man and something in English, it says:")
 playerstatus()
-print ("You discover that it cannot be taken off and decide not to worry about it too much and focus on what is directly in front of you.")
+print_slow("You discover that it cannot be taken off and decide not to worry about it too much and focus on what is directly in front of you.")
 print('\n')
 print('\n')
 
 print_slow("You look forwards, at the crossroads. A path directly ahead of you leads to a giant grey, snow-capped mountain shrouded by clouds which half hides the bright sun. ")
-print_slow("To the left there is a path leading to a green and life-filled forest. The treetops are shrouded by storm clouds and a dark atmosphere emanates from it. ")
+print_slow("To the right there is a path leading to a green and life-filled forest. The treetops are shrouded by storm clouds and a dark atmosphere emanates from it. ")
 print_slow("The left path leads to a barren and arid desert with a few littered canyons and scorching heat that can be felt even from here.")
 
 print('\n')
@@ -87,7 +88,7 @@ if dir1 == "left":
         print_slow("You slowly stroll forwards, brushing the sand with your feet as the sun scorches the back of your neck.")
         print("\n")
         
-        print_slow("You see a set of large rocks that looks like could be good for refuge and might be a bit humid. You can also see a small shadow far away and think it could be an oasis. Or you could carry on just incase you find anything better. You can as well always go back.")
+        print_slow("You see a set of large rocks that look like could be good for refuge and might be a bit humid. You can also see a small shadow far away and think it could be an oasis. Or you could carry on just incase you find anything better. You can as well always go back.")
         print('\n')
         
         dir2 = input("You chose to go:  ")
@@ -115,6 +116,7 @@ if dir1 == "left":
                     print("")
                 else:
                     print("Sorry, you die as you where not prepared for this fight yet, you die X( ")
+                    time.sleep(5)
                     quit()
             
 
