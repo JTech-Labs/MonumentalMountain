@@ -1,4 +1,4 @@
-import sys, time, random, os, Status.py
+import sys, time, random, os
 from pynput.keyboard import Key, Listener
 # This is MonumentalMountain Alpha v0.0.1
 # This "Alpha Game Program" (CC-BY-NO) was created by "Javier Fuentes-Hermoso"
