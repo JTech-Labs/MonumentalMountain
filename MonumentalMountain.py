@@ -94,7 +94,7 @@ if dir1 == "left":
         dir2 = input("You chose to go:  ")
         if dir2 =='shadow':
             print_slow("After some walking, you find a palm tree with an \"X\" carved into it, as this had always meant treasure in your world, you dig a few centimeters and find a small coin, after you touch it, you cuff bracelet updates, it reads:")
-            inventory = inventory + ("pocket-knife_compass_health-potion_health-potion_chestplate1")
+            inventory = inventory + ("compass_")
             health = health + 50
             protection = protection + 5
             power = power + 3
