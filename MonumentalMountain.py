@@ -1,5 +1,4 @@
 import sys, time, random, os
-from pynput.keyboard import Key, Listener
 # This is MonumentalMountain Alpha v0.0.1
 # This "Alpha Game Program" (CC-BY-NO) was created by "Javier Fuentes-Hermoso"
 # MonumentalMountain is licensed under the GNU GPLv3 license by GAMAX-INTERACTIVE, part of the JAI-INNOVATIONS
