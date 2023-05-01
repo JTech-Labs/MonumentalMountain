@@ -3,7 +3,7 @@ This is a simply written "choose your own story" style RPG text game made in Pyt
 
 ## Writing and licensing
 
-This program is written by British secondary schoolers in our spare time so please be respl if updates take some time to be released. The Python files are compiled into executables with pyinstaller using the respective OS. All the code is licensed under GNU GPL v3.0.
+This program is written by British secondary schoolers in our spare time so please be respectful if updates take some time to be released. The Python files are compiled into executables with pyinstaller using the respective OS. All the code is licensed under GNU GPL v3.0.
 
 ## Releases
 
