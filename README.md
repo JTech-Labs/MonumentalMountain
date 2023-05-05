@@ -1,5 +1,5 @@
 # MonumentalMountain
-This is a simply written "choose your own story" style RPG text game made in Python and inspired by the 1978's Colossal Cave Adventure.
+This is a simply written "choose your own story" style RPG text game made in Python and inspired by the 1976's Colossal Cave Adventure.
 
 ## Writing and licensing
 
