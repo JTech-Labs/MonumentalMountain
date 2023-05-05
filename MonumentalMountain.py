@@ -8,7 +8,6 @@ protection = int(0)
 power = int(1)
 magic = int(0)
 sh1 = int(0)
-# Just in case, we could work on this. # os.system('start powershell ` "-noexit", ` "`$host.ui.RawUI.WindowTitle` = \'list files and goto SO\'; ` ls ;` Start-Process chrome.exe https://stackoverflow.com/"')
 def playerstatus():
     print('\n')
     print(f"\n Inventory: {inventory} \n Health: {health} \n Protection: {protection} \n Power: {power} \n Magic: {magic} \n")
