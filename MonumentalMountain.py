@@ -1,4 +1,4 @@
-import sys, time, random, os
+import sys, time, random, os, webbrowser
 # This is MonumentalMountain Alpha v0.0.2
 # This "Alpha Game Program" (CC-BY-NO) was created by "Javier Fuentes-Hermoso"
 # MonumentalMountain is licensed under the GNU GPLv3 license by GAMAX-INTERACTIVE, part of the JAI-INNOVATIONS
@@ -7,7 +7,10 @@ health = int(100)
 protection = int(0)
 power = int(1)
 magic = int(0)
+#More variables
 sh1 = int(0)
+fight1_2 = int(1)
+#Definitions
 def playerstatus():
     print('\n')
     print(f"\n Inventory: {inventory} \n Health: {health} \n Protection: {protection} \n Power: {power} \n Magic: {magic} \n")
@@ -23,7 +26,7 @@ def print_slow(str):
         sys.stdout.write(letter)
         sys.stdout.flush()
         time.sleep(0.05)
-
+#Main game
 print_slow("Welcome to MonumentalMountain Alpha v0.0.2 Created by GAMAX-INTERACTIVE")
 print('\n')
 
@@ -106,8 +109,12 @@ if dir1 == "left":
                 print_slow("You see the tree with the \"X\" on it and the hole. There is nothing more to see here.")
         
         elif dir2 == 'rocks':
-            print_slow("You go to the rocks to see what there is. You find a steep and narrow staircase that leads downwards")
-        
+            print_slow("You go to the rocks to see what there is. You find a steep and narrow staircase that leads downwards.")
+            if str("_Light-Necklace_") in Inventory:
+                print_slow("Just before you go down the stairs, you find a small crack in the wall of one of the rocks that matches the shape of your necklace.")
+                print_slow("You decide to place the necklace in. Suddenly, a flash of light engulfs you and you feel as if you where thrown at the speed of light forwards and you don't have any way of stopping it.")
+                print_slow("\nIt all goes white.")
+                webbrowser.open('')
         elif dir2 == 'forwards':
             print_slow("You decide to go forwards as you are not really interested in what you can see from here. As you try and block the sun with your hand, you trip over a small rock, falling down a canyon.")
             print_slow("Surprisingly, you survive. But  only to be met with a giant cockroach.")
@@ -115,14 +122,19 @@ if dir1 == "left":
             if fight1 == "run":
                 print("you instantly run, you find that there is a less steep hill nearby that can help you get back to the start of the dessert.")
             elif fight1 == "fight":
-                if [power >= 7] or [protection >= 7]:
-                    print("")
+                if [[power >= 7] or [protection >= 7]] or fight1_2 != 1:
+                    print("You fight until you don't have ay more energy even though the beast doesn't make a single move. The cockroach looks at you with sorrow and disappointment and leaves. You decide to go back a hill you find.")
+                    fight1_2 = fight1_2 + 1
+                
+                elif fight1 == "talk":
+                    print_slow("Even though you see this unknown animal very frightening, you decided to gently hush it to calm it down.")
+                    print_slow("The cockroach looks at you with confusion. To your surprise it responds and says 'What are you doing? I am the guardian of the Isoriac dessert. My unlucky body normally frightens most people but I'm actually very friendly!")
+                    print_slow("You discover that its name in Inorilarn and that he has been here since the first ray of light dried the sandy land. He hasn't talked to anyone in a lot of time as most adventurers are too terrified. It gives you a golden necklace as a reward and an orange orb incase you need his help.")
+                    print_slow("After that, you decide to go back and decide that the rocks might have something useful.")
+                    inventory = inventory + "Inorilarn's-Orb_Light-Necklace_"
+                    power = power + 3
                 else:
-                    print("Before you even start to fight, you get a heart attack as you where not ready, you die. X( ")
-                    time.sleep(5)
-                    quit()
-            
-
+                    print_slow("You have already been here.")
         else:
             stop_all()
 
