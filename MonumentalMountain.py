@@ -127,7 +127,7 @@ if dir1 == "left":
                     fight1_2 = fight1_2 + 1
                 
                 elif fight1 == "talk":
-                    print_slow("Even though you see this unknown animal very frightening, you decided to gently hush it to calm it down.")
+                    print_slow("Even though you see this unknown animal very frightening, you decided to gently hush in order to calm it down.")
                     print_slow("The cockroach looks at you with confusion. To your surprise it responds and says 'What are you doing? I am the guardian of the Isoriac dessert. My unlucky body normally frightens most people but I'm actually very friendly!")
                     print_slow("You discover that its name in Inorilarn and that he has been here since the first ray of light dried the sandy land. He hasn't talked to anyone in a lot of time as most adventurers are too terrified. It gives you a golden necklace as a reward and an orange orb incase you need his help.")
                     print_slow("After that, you decide to go back and decide that the rocks might have something useful.")
