@@ -10,7 +10,8 @@ This program is written by British secondary schoolers in our spare time so plea
 For the downloads please go to the [*`releases`*](https://github.com/JTech-Labs/MonumentalMountain/releases) section of the repo and just run the executable for your respective OS (currently only Windows). Alpha releases will be codenamed `"Quantum Rock"`; Beta releases will be codenamed `"Small Stone"`; and Stable releases will have their own codename.
 
 ## In game
-MonumentalMountain has several special features. If you want to see all the items and their corresponding advancements, please see ITEMS.md
----
 
+MonumentalMountain has several special features. If you want to see all the items and their corresponding advancements, please see ITEMS.md
+
+---
 Please open an issue or make a pull request if you feel something needs adding or changing, the programming team or kind people of the community will try to respond as soon as possible.
