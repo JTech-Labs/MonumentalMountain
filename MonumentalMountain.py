@@ -2,16 +2,19 @@ import sys, time, random, os, webbrowser
 # This is MonumentalMountain Alpha v0.0.2
 # This "Alpha Game Program" (CC-BY-NO) was created by "Javier Fuentes-Hermoso"
 # MonumentalMountain is licensed under the GNU GPLv3 license by GAMAX-INTERACTIVE, part of the JAI-INNOVATIONS
+
+    #Some Variables
 inventory = str("_")
 health = int(100)
 protection = int(0)
 power = int(1)
 magic = int(0)
-#More variables
 sh1 = int(0)
 fight1_2 = int(1)
-#Definitions
-def playerstatus():
+TimeSleep = float(0.05)
+
+    #Definitions
+def PlayerStatus():
     print('\n')
     print(f"\n Inventory: {inventory} \n Health: {health} \n Protection: {protection} \n Power: {power} \n Magic: {magic} \n")
     print('\n')
@@ -25,8 +28,9 @@ def print_slow(str):
     for letter in str:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(0.05)
-#Main game
+        time.sleep(TimeSleep)
+
+    #Main game
 print_slow("Welcome to MonumentalMountain Alpha v0.0.2 Created by GAMAX-INTERACTIVE")
 print('\n')
 
@@ -43,6 +47,7 @@ print_slow("Only the human that is most consciously unprepared but subconsciousl
 
 print_slow("And that one specific person,  at this one specific time happens to be...")
 print('\n')
+print('\n')
 print_slow("You")
 
 print('\n')
@@ -57,6 +62,7 @@ yesno1 = input("Are you ready, *yes* or no*?: ")
 
 if yesno1 == "yes":
     print_slow("Starting . . . . . . . . . . . . . . . .")
+    TimeSleep = float(0.5)
 else:
     quit()
 
@@ -73,7 +79,7 @@ name = input("After some consideration, you decide to refer to yourself as:   ")
 
 print('\n')
 print_slow("The first thing you do is notice a cuff bracelet made from gold and copper with incrusted diamonds that contains a lot of weird engraved text in some kind of foreign language not known to man and something in English, it says:")
-playerstatus()
+PlayerStatus()
 print_slow("You discover that it cannot be taken off and decide not to worry about it too much and focus on what is directly in front of you.")
 print('\n')
 print('\n')
@@ -102,7 +108,7 @@ if dir1 == "left":
                 health = health + 50
                 protection = protection + 5
                 power = power + 3
-                playerstatus()
+                PlayerStatus()
                 sh1 = sh1 + 1
                 print_slow("You figure the number after the object must be its level. After examining your cuff again, you decide to carry on.")
             else:
@@ -119,22 +125,27 @@ if dir1 == "left":
             print_slow("You decide to go forwards as you are not really interested in what you can see from here. As you try and block the sun with your hand, you trip over a small rock, falling down a canyon.")
             print_slow("Surprisingly, you survive. But  only to be met with a giant cockroach.")
             fight1 = input("Do you want to *fight* or would you rather *run*?:  ")
+
+            if "_compass_" in inventory:
+                print_slow("#Tip: What would you do if it was a normal person?")
+
             if fight1 == "run":
                 print("you instantly run, you find that there is a less steep hill nearby that can help you get back to the start of the dessert.")
+            
             elif fight1 == "fight":
                 if [[power >= 7] or [protection >= 7]] or fight1_2 != 1:
                     print("You fight until you don't have ay more energy even though the beast doesn't make a single move. The cockroach looks at you with sorrow and disappointment and leaves. You decide to go back a hill you find.")
                     fight1_2 = fight1_2 + 1
                 
-                elif fight1 == "talk":
-                    print_slow("Even though you see this unknown animal very frightening, you decided to gently hush in order to calm it down.")
-                    print_slow("The cockroach looks at you with confusion. To your surprise it responds and says 'What are you doing? I am the guardian of the Isoriac dessert. My unlucky body normally frightens most people but I'm actually very friendly!")
-                    print_slow("You discover that its name in Inorilarn and that he has been here since the first ray of light dried the sandy land. He hasn't talked to anyone in a lot of time as most adventurers are too terrified. It gives you a golden necklace as a reward and an orange orb incase you need his help.")
-                    print_slow("After that, you decide to go back and decide that the rocks might have something useful.")
-                    inventory = inventory + "Inorilarn's-Orb_Light-Necklace_"
-                    power = power + 3
-                else:
-                    print_slow("You have already been here.")
+            elif fight1 == "talk":
+                print_slow("Even though you see this unknown animal very frightening, you decided to gently hush in order to calm it down.")
+                print_slow("The cockroach looks at you with confusion. To your surprise it responds and says 'What are you doing? I am the guardian of the Isoriac dessert. My unlucky body normally frightens most people but I'm actually very friendly!")
+                print_slow("You discover that its name in Inorilarn and that he has been here since the first ray of light dried the sandy land. He hasn't talked to anyone in a lot of time as most adventurers are too terrified. It gives you a golden necklace as a reward and an orange orb that will help you incase you need his help.")
+                print_slow("After that, you decide to go back and decide that the rocks might have something useful.")
+                inventory = inventory + "Inorilarn's-Orb_Light-Necklace_"
+                power = power + 3
+            else:
+                print_slow("You have already been here.")
         else:
             stop_all()
 
