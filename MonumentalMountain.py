@@ -32,12 +32,13 @@ print("Welcome to the Monumental Mountain. We will lead you through the terrain,
 
 print("Please type in all lowercase, you will know what to type because it is marked with two asterisk.")
 
-yesno1 = input("Are you ready, *yes* or no*?: ")
+yesno1 = input("Are you ready, *yes* or *no*?: ")
 
 if yesno1 == "yes":
     print_slow("Starting . . . . . . . . . . . . . . . .")
     TimeSleep = float(0.5)
 else:
+    print_slow("You have decided that you are not yet ready for this. The council will chose someone else to replace you. Remember though, you can always come back when you are ready...")
     quit()
 
 
