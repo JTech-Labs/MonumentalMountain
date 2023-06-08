@@ -1,34 +1,8 @@
 import sys, time, random, os, webbrowser
+from modules import PlayerStatus stop_all print_slow
 # This is MonumentalMountain Alpha v0.0.2
 # This "Alpha Game Program" (CC-BY-NO) was created by "Javier Fuentes-Hermoso"
 # MonumentalMountain is licensed under the GNU GPLv3 license by GAMAX-INTERACTIVE, part of the JAI-INNOVATIONS
-
-    #Some Variables
-inventory = str("_")
-health = int(100)
-protection = int(0)
-power = int(1)
-magic = int(0)
-sh1 = int(0)
-fight1_2 = int(1)
-TimeSleep = float(0.05)
-
-    #Definitions
-def PlayerStatus():
-    print('\n')
-    print(f"\n Inventory: {inventory} \n Health: {health} \n Protection: {protection} \n Power: {power} \n Magic: {magic} \n")
-    print('\n')
-
-def stop_all():
-    print(f"Input invalid, sorry {name}, you lose...")
-    time.sleep(5)
-    quit()
-
-def print_slow(str):
-    for letter in str:
-        sys.stdout.write(letter)
-        sys.stdout.flush()
-        time.sleep(TimeSleep)
 
     #Main game
 print_slow("Welcome to MonumentalMountain Alpha v0.0.2 Created by GAMAX-INTERACTIVE")
