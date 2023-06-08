@@ -1,5 +1,5 @@
 import sys, time, random, os, webbrowser
-from modules import PlayerStatus stop_all print_slow
+from modules import PlayerStatus, stop_all, print_slow, sh1, fight1_2
 # This is MonumentalMountain Alpha v0.0.2
 # This "Alpha Game Program" (CC-BY-NO) was created by "Javier Fuentes-Hermoso"
 # MonumentalMountain is licensed under the GNU GPLv3 license by GAMAX-INTERACTIVE, part of the JAI-INNOVATIONS
