@@ -1,30 +1,18 @@
 import sys, time, random, os, webbrowser
 from modules import PlayerStatus, stop_all, print_slow, sh1, fight1_2
+from intro import intro
 # This is MonumentalMountain Alpha v0.0.2
 # This "Alpha Game Program" (CC-BY-NO) was created by "Javier Fuentes-Hermoso"
 # MonumentalMountain is licensed under the GNU GPLv3 license by GAMAX-INTERACTIVE, part of the JAI-INNOVATIONS
 
     #Main game
-print_slow("Welcome to MonumentalMountain Alpha v0.0.2 Created by GAMAX-INTERACTIVE")
-print('\n')
+playgame = input("Do you want the introduction [y,n]?:  ")
+if playgame == "y" or playgame == "Y":
+    intro()
+elif playgame == "n" or playgame == "N":
+    print('\n')
 
-print_slow("Legends have been told about the Mysterious Monumental Mountain, a realm accessible only while in a certain mental state that must be reached through sleep.")
-print('\n')
 
-print_slow("A place created at the dawn of humankind by the Supreme Planetary Council of Intelligence to test humankind until they are advanced enough as a species to join the Supreme Council")
-print('\n')
-
-print_slow("You, a simple human who have only read about this mysterious realm in medieval history books, go to bed in peace without the knowledge that at exactly midnight of the summer equinox of 2023 everyone on the dark and light side of the Earth unconsciously decides to sleep all at the same time.")
-print('\n')
-
-print_slow("Only the human that is most consciously unprepared but subconsciously ready would be chosen to go and stand for their species. ")
-
-print_slow("And that one specific person,  at this one specific time happens to be...")
-print('\n')
-print('\n')
-print_slow("You")
-
-print('\n')
 print('\n')
 print('\n')
 
