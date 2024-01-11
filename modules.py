@@ -17,6 +17,9 @@ def PlayerStatus():
     print(f"\n Inventory: {inventory} \n Health: {health} \n Protection: {protection} \n Power: {power} \n Magic: {magic} \n")
     print('\n')
 
+def clear():
+    os.system('cls' if os.name == 'nt' else "printf '\033c'")
+
 def stop_all():
     print(f"Input invalid, sorry {name}, you lose...")
     time.sleep(5)

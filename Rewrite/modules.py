@@ -1,0 +1,26 @@
+import sys, time, random, os, webbrowser
+
+def PlayerStatus():
+    print(f"\n\n Inventory: {inventory} \n Health: {health} \n Protection: {protection} \n Power: {power} \n Magic: {magic} \n\n")
+
+def clear():
+    os.system('cls' if os.name == 'nt' else "printf '\033c'")
+
+def printSlow(str):
+    for letter in str:
+        sys.stdout.write(letter)
+        sys.stdout.flush()
+        time.sleep(TimeSleep)
+
+
+places = {
+    'Superliminal Space': {'forewards': 'Mountain Base', 'right': 'Forrest', 'left': 'Dessert'},
+
+}
+
+vowels = ['a', 'e', 'i', 'o', 'u']
+
+inventory = []
+
+msg = ""
+

@@ -30,8 +30,6 @@ else:
     quit()
 
 
-os.system('cls' if os.name == 'nt' else "printf '\033c'")
-
 print_slow("You're lost and scared, out of control. You are trapped in a nightmare where you can't stop falling. Incomprehensible lights, colors and emotions fly past you at impossible speeds while reality and imagination merge into a flash of white that overwhelms you as you collide with the ground.")
 
 print('\n')
@@ -41,13 +39,13 @@ print('\n')
 name = input("After some consideration, you decide to refer to yourself as:   ")
 
 print('\n')
-print_slow("The first thing you do is notice a cuff bracelet made from gold and copper with incrusted diamonds that contains a lot of weird engraved text in some kind of foreign language not known to man and something in English, it says:")
+print_slow("Now {name}, he first thing you do is notice a cuff bracelet made from gold and copper with incrusted diamonds that contains a lot of weird engraved text in some kind of foreign language not known to man and something in English, it says:")
 PlayerStatus()
 print_slow("You discover that it cannot be taken off and decide not to worry about it too much and focus on what is directly in front of you.")
 print('\n')
 print('\n')
 
-print_slow("You look *forwards*, at the crossroads. A path directly ahead of you leads to a giant grey, snow-capped mountain shrouded by clouds which half hides the bright sun. ")
+print_slow("You look *forwards*, at the crossroads, a slightly superliminal place. A path directly ahead of you leads to a giant grey, snow-capped mountain shrouded by clouds which half hides the bright sun. ")
 print_slow("To the *right* there is a path leading to a green and life-filled forest. The treetops are shrouded by storm clouds and a dark atmosphere emanates from it. ")
 print_slow("The *left* path leads to a barren and arid desert with a few littered canyons and scorching heat that can be felt even from here.")
 
