@@ -7,42 +7,39 @@ intro()
 
 currentRoom = "Superliminal Space"
 
-# Gameplay loop
 while True:
 
     clear()
 
-    # Display player info
-    print(f"You are in the {current_room}\nInventory : {inventory}\n{'-' * 27}")
+    print(f"You are in the {currentRoom}\nInventory : {inventory}\n{'-' * 27}")
 
-    # Display msg
     print(msg)
 
     # Item indicator
-    if "Item" in rooms[current_room].keys():
+    if "Item" in rooms[currentRoom].keys():
 
-        nearby_item = rooms[current_room]["Item"]
+        nearbyItem = rooms[currentRoom]["Item"]
 
-        if nearby_item not in inventory:
+        if nearbyItem not in inventory:
 
-            if nearby_item[-1] == 's':
-                print(f"You see {nearby_item}")
+            if nearbyItem[-1] == 's':
+                print(f"You see {nearbyItem}")
 
-            elif nearby_item[0] in vowels:
-                print(f"You see an {nearby_item}")
+            elif nearbyItem[0] in vowels:
+                print(f"You see an {nearbyItem}")
 
             else:
-                print(f"You see a {nearby_item}")
+                print(f"You see a {nearbyItem}")
     
     # Boss encounter
-    if "Boss" in rooms[current_room].keys():
+    if "Boss" in rooms[currentRoom].keys():
 
         if len(inventory) < 6:
-            print(f"You lost a fight with {rooms[current_room]['Boss']}.")
+            print(f"You lost a fight with {rooms[currentRoom]['Boss']}.")
             break
 
         else:
-            print(f"You beat {rooms[current_room]['Boss']}!")
+            print(f"You beat {rooms[currentRoom]['Boss']}!")
             break
 
     # Accepts player's move as input
@@ -69,7 +66,7 @@ while True:
     if action == "Go":
 
         try:
-            current_room = rooms[current_room][direction]
+            currentRoom = rooms[currentRoom][direction]
             msg = f"You travel {direction}"
 
         except:
@@ -78,11 +75,11 @@ while True:
     # Picking up items
     elif action == "Get":
         try:
-            if item == rooms[current_room]["Item"]:
+            if item == rooms[currentRoom]["Item"]:
 
                 if item not in inventory:
 
-                    inventory.append(rooms[current_room]["Item"])
+                    inventory.append(rooms[currentRoom]["Item"])
                     msg = f"{item} retrieved!"
 
                 else:
