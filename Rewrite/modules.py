@@ -15,8 +15,14 @@ def printSlow(str):
 
 
 places = {
-    'Superliminal Space': {'forewards': 'Mountain Base', 'right': 'Forrest', 'left': 'Dessert'},
+    'Superliminal Space': {'Forewards': 'Mountain Base', 'Right': 'Forrest', 'Left': 'Dessert'},
+    'Dessert Start': {'Forewards': ''}
 
+}
+
+msgs = {
+    'Superliminal Space': "",
+    
 }
 
 vowels = ['a', 'e', 'i', 'o', 'u']

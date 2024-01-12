@@ -39,7 +39,7 @@ print('\n')
 name = input("After some consideration, you decide to refer to yourself as:   ")
 
 print('\n')
-print_slow(f"Now {name}, he first thing you do is notice a cuff bracelet made from gold and copper with incrusted diamonds that contains a lot of weird engraved text in some kind of foreign language not known to man and something in English, it says:")
+print_slow(f"Now {name}, the first thing you do is notice a cuff bracelet made from gold and copper with incrusted diamonds that contains a lot of weird engraved text in some kind of foreign language not known to man and something in English, it says:")
 PlayerStatus()
 print_slow("You discover that it cannot be taken off and decide not to worry about it too much and focus on what is directly in front of you.")
 print('\n')

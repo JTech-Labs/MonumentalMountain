@@ -11,9 +11,9 @@ while True:
 
     clear()
 
-    print(f"You are in the {currentRoom}\nInventory : {inventory}\n{'-' * 27}")
-
     print(msg)
+
+    print(msgs[currentRoom])
 
     # Item indicator
     if "Item" in rooms[currentRoom].keys():
@@ -31,34 +31,34 @@ while True:
             else:
                 print(f"You see a {nearbyItem}")
     
-    # Boss encounter
-    if "Boss" in rooms[currentRoom].keys():
+    ## Boss encounter
+    #if "Boss" in rooms[currentRoom].keys():
 
-        if len(inventory) < 6:
-            print(f"You lost a fight with {rooms[currentRoom]['Boss']}.")
-            break
+        #if len(inventory) < 6:
+            #print(f"You lost a fight with {rooms[currentRoom]['Boss']}.")
+            #break
 
-        else:
-            print(f"You beat {rooms[currentRoom]['Boss']}!")
-            break
+        #else:
+            #print(f"You beat {rooms[currentRoom]['Boss']}!")
+            #break
 
     # Accepts player's move as input
-    user_input = input("Enter your move:\n")
+    userInput = input("Enter your move:\n")
 
     # Splits move into words
-    next_move = user_input.split(' ')
+    nextMove = userInput.split(' ')
 
     # First word is action
-    action = next_move[0].title()
+    action = nextMove[0].title()
 
     # Reset item and direction
     item = "Item"
     direction = "null"
 
     # Second word is object or direction
-    if len(next_move) > 1:
-        item = next_move[1:]
-        direction = next_move[1].title()
+    if len(nextMove) > 1:
+        item = nextMove[1:]
+        direction = nextMove[1].title()
 
         item = " ".join(item).title()
 
@@ -67,7 +67,7 @@ while True:
 
         try:
             currentRoom = rooms[currentRoom][direction]
-            msg = f"You travel {direction}"
+            msg = f"You go {direction}"
 
         except:
             msg = "You can't go that way."
@@ -90,6 +90,9 @@ while True:
         except:
             msg = f"Can't find {item}"
     
+    elif action == "Stats":
+        print(f"\n\n Inventory: {inventory} \n Health: {health} \n Protection: {protection} \n Power: {power} \n Magic: {magic} \n\n")
+
     # Exit program
     elif action == "Exit":
         break
