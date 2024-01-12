@@ -1,5 +1,5 @@
-from modules import *
-import sys, time, random, os, webbrowser
+import sys, time, random, os
+from modules import clear, printSlow, health, protection, power, magic, inventory, places, vowels, msg, msgs
 from intro import intro
 
 clear()
@@ -11,35 +11,35 @@ while True:
 
     clear()
 
-    print(msg)
+    printSlow(msg)
 
-    print(msgs[currentRoom])
+    printSlow(msgs[currentRoom])
 
     # Item indicator
-    if "Item" in rooms[currentRoom].keys():
+    if "Item" in places[currentRoom].keys():
 
-        nearbyItem = rooms[currentRoom]["Item"]
+        nearbyItem = places[currentRoom]["Item"]
 
         if nearbyItem not in inventory:
 
             if nearbyItem[-1] == 's':
-                print(f"You see {nearbyItem}")
+                printSlow(f"You see {nearbyItem}")
 
             elif nearbyItem[0] in vowels:
-                print(f"You see an {nearbyItem}")
+                printSlow(f"You see an {nearbyItem}")
 
             else:
-                print(f"You see a {nearbyItem}")
+                printSlow(f"You see a {nearbyItem}")
     
     ## Boss encounter
-    #if "Boss" in rooms[currentRoom].keys():
+    #if "Boss" in places[currentRoom].keys():
 
         #if len(inventory) < 6:
-            #print(f"You lost a fight with {rooms[currentRoom]['Boss']}.")
+            #printSlow(f"You lost a fight with {places[currentRoom]['Boss']}.")
             #break
 
         #else:
-            #print(f"You beat {rooms[currentRoom]['Boss']}!")
+            #printSlow(f"You beat {places[currentRoom]['Boss']}!")
             #break
 
     # Accepts player's move as input
@@ -62,24 +62,24 @@ while True:
 
         item = " ".join(item).title()
 
-    # Moving between rooms
+    # Moving between places
     if action == "Go":
 
         try:
-            currentRoom = rooms[currentRoom][direction]
+            currentRoom = places[currentRoom][direction]
             msg = f"You go {direction}"
 
         except:
             msg = "You can't go that way."
-    
+
     # Picking up items
     elif action == "Get":
         try:
-            if item == rooms[currentRoom]["Item"]:
+            if item == places[currentRoom]["Item"]:
 
                 if item not in inventory:
 
-                    inventory.append(rooms[currentRoom]["Item"])
+                    inventory.append(places[currentRoom]["Item"])
                     msg = f"{item} retrieved!"
 
                 else:
@@ -91,7 +91,8 @@ while True:
             msg = f"Can't find {item}"
     
     elif action == "Stats":
-        print(f"\n\n Inventory: {inventory} \n Health: {health} \n Protection: {protection} \n Power: {power} \n Magic: {magic} \n\n")
+        printSlow(f"\n\n Inventory: {inventory} \n Health: {health} \n Protection: {protection}\
+            \n Power: {power} \n Magic: {magic} \n\n")
 
     # Exit program
     elif action == "Exit":
