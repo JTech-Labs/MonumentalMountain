@@ -1,32 +1,41 @@
-import sys, time, random, os, webbrowser
+#Improts
+import sys, time, os
+from intro import name
 
+#Stats
+health = 100
+protection = 0
+power = 0
+magic = 0
+inventory = []
 
-    #Some Variables
-inventory = str("_")
-health = int(100)
-protection = int(0)
-power = int(1)
-magic = int(0)
-sh1 = int(0)
-fight1_2 = int(1)
-TimeSleep = float(0.05)
-
-    #Definitions
+    #Functions
 def PlayerStatus():
-    print('\n')
-    print(f"\n Inventory: {inventory} \n Health: {health} \n Protection: {protection} \n Power: {power} \n Magic: {magic} \n")
-    print('\n')
+    print(f"\n\nYou are: {name}. These are your stats\n\n Inventory: {inventory} \n Health: {health} \n Protection: {protection} \n Power: {power} \n Magic: {magic} \n\n")
 
 def clear():
     os.system('cls' if os.name == 'nt' else "printf '\033c'")
 
-def stop_all():
-    print(f"Input invalid, sorry {name}, you lose...")
-    time.sleep(5)
-    quit()
-
-def print_slow(str):
-    for letter in str:
+def printSlow(stri):
+    for letter in stri:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(TimeSleep)
+        time.sleep(0.5)
+
+places = {
+    'Superliminal Space': {'Forewards': 'Mountain Base', 'Right': 'Forrest', 'Left': 'Dessert'},
+    'Dessert Start': {'Forewards': ''},
+}
+
+msgs = {
+    'Superliminal Space': "",
+}
+
+compassMsgs = {
+    'Superliminal Space': '',
+    'Dessert Start': '',
+}
+
+vowels = ['a', 'e', 'i', 'o', 'u']
+
+msg = ""

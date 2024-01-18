@@ -1,25 +1,71 @@
-import sys, time, random, os, webbrowser
-from modules import PlayerStatus, stop_all, print_slow, sh1, fight1_2
+import time
+from modules import clear, printSlow, PlayerStatus
+
+clear()
 
 #Intro
 def intro():
-    print_slow("Welcome to MonumentalMountain Alpha v0.0.2 Created by GAMAX-INTERACTIVE")
+    printSlow("Welcome to MonumentalMountain Alpha v0.0.2r Created by GAMAX-INTERACTIVE")
     print('\n')
 
-    print_slow("Legends have been told about the Mysterious Monumental Mountain, a realm accessible only while in a certain mental state that must be reached through sleep.")
+    printSlow("Legends have been told about the Mysterious Monumental Mountain,\
+            a realm accessible only while in a certain mental state that must be reached through sleep.")
     print('\n')
 
-    print_slow("A place created at the dawn of humankind by the Supreme Planetary Council of Intelligence to test humankind until they are advanced enough as a species to join the Supreme Council")
+    printSlow("A place created at the dawn of humankind by the Supreme Planetary Council of Intelligence\
+            to test humankind until they are advanced enough as a species to join the Supreme Council")
     print('\n')
 
-    print_slow("You, a simple human who have only read about this mysterious realm in medieval history books, go to bed in peace without the knowledge that at exactly midnight of the summer equinox of 2023 everyone on the dark and light side of the Earth unconsciously decides to sleep all at the same time.")
+    printSlow("You, a simple human who have only read about this mysterious realm in medieval history books,\
+            go to bed in peace without the knowledge that at exactly midnight of the summer equinox of 2023\
+            everyone on the dark and light side of the Earth unconsciously decides to sleep all at the same time.")
     print('\n')
 
-    print_slow("Only the human that is most consciously unprepared but subconsciously ready would be chosen to go and stand for their species. ")
+    printSlow("Only the human that is most consciously unprepared but subconsciously\
+            ready would be chosen to go and stand for their species. ")
 
-    print_slow("And that one specific person,  at this one specific time happens to be...")
+    printSlow("And that one specific person,  at this one specific time happens to be...")
     print('\n')
     print('\n')
-    print_slow("You")
-    time.sleep(5)
+    printSlow("You")
+    time.sleep(2)
     print('\n')
+
+print('\n')
+print('\n')
+
+print("Welcome to the Monumental Mountain. We will lead you through\
+         the terrain, but you must make the vital decisions as you progress. If you ever need help, type in \"Help\"")
+
+print("The available prompts will be directions (e.g. forewards, back, right, etc), the word \"item\".")
+
+yesno1 = input("Are you ready, *yes* or *no*?: ").title()
+
+if yesno1 == "yes":
+    printSlow("Starting . . . . . . . . . . . . . . . .")
+    TimeSleep = float(0.5)
+else:
+    printSlow("You have decided that you are not yet ready for this. The council will chose someone\
+         else to replace you. Remember though, you can always come back when you are ready...")
+    quit()
+
+
+printSlow("You're lost and scared, out of control. You are trapped in a nightmare where you can't stop falling.\
+         Incomprehensible lights, colors and emotions fly past you at impossible speeds while reality and\
+         imagination merge into a flash of white that overwhelms you as you collide with the ground.")
+
+print('\n')
+
+printSlow("You don't remember anything, not even your name or age. All you know is that you are at the edge of\
+         a crossroads and that something is forcing you to move forwards")
+print('\n')
+name = input("After some consideration, you decide to refer to yourself as:   ")
+
+print('\n')
+printSlow(f"Now {name}, the first thing you do is notice a cuff bracelet made from gold and copper with incrusted\
+         gems that contains a lot of weird engraved text in some kind of foreign language not known to to your kind")
+PlayerStatus()
+printSlow("You discover that it cannot be taken off and decide not to worry about it too much and focus on\
+         what is directly in front of you.")
+print('\n')
+print('\n')
