@@ -1,4 +1,5 @@
-from modules import *
+from modules import health,protection,power,magic,inventory,clear,printSlow,msg,vowels
+from story import places,msgs,compassMsgs,IS,NPCconvers
 from intro import intro, name
 clear()
 
@@ -100,13 +101,22 @@ while True:
     
     elif action == "Help":
         msg = "Possible actions:\n\t Look: Repeat prompt\n\tCompass: Get extra help if you need it\
-            \n\tStats: Print your stats\n\tHelp: Prints this\n\t"
+            \n\tStats: Print your stats\n\tHelp: Prints this\n\tYou can \"Go\":\n\t\tForewards\n\t\tBack\n\t\t\
+            Left\n\t\tRight\n\tYou can \"Get\" the item in that room that you are in if you don't already have it.\n\t\
+                And you can always \"Exit\""
     
     elif action == "Look": continue
+
+    elif action == "Talk" or action == "Speak":
+        if NPCconvers[currentRoom]["IS"] == True:
+            print(f"Not yet implemented...")
+        else: print("There is no one to talk to here.")
 
     # Exit program
     elif action == "Exit":
         msg = 'You have left the realm, see you later!'
+        clear()
+        quit()
 
     # Any other commands invalid
     else:
