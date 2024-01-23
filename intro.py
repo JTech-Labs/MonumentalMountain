@@ -1,5 +1,13 @@
-import time
-from modules import clear, printSlow, PlayerStatus
+import time,os,sys
+
+def clear():
+    os.system('cls' if os.name == 'nt' else "printf '\033c'")
+
+def printSlow(stri):
+    for letter in stri:
+        sys.stdout.write(letter)
+        sys.stdout.flush()
+        time.sleep(0.5)
 
 clear()
 
@@ -31,41 +39,44 @@ def intro():
     time.sleep(2)
     print('\n')
 
-print('\n')
-print('\n')
+    print('\n')
+    print('\n')
 
-print("Welcome to the Monumental Mountain. We will lead you through\
-         the terrain, but you must make the vital decisions as you progress. If you ever need help, type in \"Help\"")
+    print("Welcome to the Monumental Mountain. We will lead you through\
+    the terrain, but you must make the vital decisions as you progress. If you ever need help, type in \"Help\"\n\
+    !!WARNING!!, THIS GAME IS INPIRED BY COLOSSAL CAVE ADVENTURE, YOUR PROGRESS WILL NOT BE SAVED!,\
+     YOU HAVE BEEN WARNED!")
 
-print("The available prompts will be directions (e.g. forewards, back, right, etc), the word \"item\".")
+    print("The available prompts will be directions (e.g. forewards, back, right, left), the word \"item\".")
 
-yesno1 = input("Are you ready, *yes* or *no*?: ").title()
+    yesno1 = input("Are you ready, *yes* or *no*?: ").title()
 
-if yesno1 == "yes":
-    printSlow("Starting . . . . . . . . . . . . . . . .")
-    TimeSleep = float(0.5)
-else:
-    printSlow("You have decided that you are not yet ready for this. The council will chose someone\
-         else to replace you. Remember though, you can always come back when you are ready...")
-    quit()
+    if yesno1 == "yes":
+        printSlow("Starting . . . . . . . . . . . . . . . .")
+        TimeSleep = float(0.5)
+        clear()
+    else:
+        printSlow("You have decided that you are not yet ready for this. The council will chose someone\
+    else to replace you. Remember though, you can always come back when you are ready...")
+        quit()
 
 
-printSlow("You're lost and scared, out of control. You are trapped in a nightmare where you can't stop falling.\
-         Incomprehensible lights, colors and emotions fly past you at impossible speeds while reality and\
-         imagination merge into a flash of white that overwhelms you as you collide with the ground.")
+    printSlow("You're lost and scared, out of control. You are trapped in a nightmare where you can't stop falling.\
+             Incomprehensible lights, colors and emotions fly past you at impossible speeds while reality and\
+             imagination merge into a flash of white that overwhelms you as you collide with the ground.")
 
-print('\n')
+    print('\n')
 
-printSlow("You don't remember anything, not even your name or age. All you know is that you are at the edge of\
-         a crossroads and that something is forcing you to move forwards")
-print('\n')
-name = input("After some consideration, you decide to refer to yourself as:   ")
+    printSlow("You don't remember anything, not even your name or age. All you know is that you are at the edge of\
+             a crossroads and that something is forcing you to move forwards")
+    print('\n')
+    name = input("After some consideration, you decide to refer to yourself as:   ")
 
-print('\n')
-printSlow(f"Now {name}, the first thing you do is notice a cuff bracelet made from gold and copper with incrusted\
-         gems that contains a lot of weird engraved text in some kind of foreign language not known to to your kind")
-PlayerStatus()
-printSlow("You discover that it cannot be taken off and decide not to worry about it too much and focus on\
-         what is directly in front of you.")
-print('\n')
-print('\n')
+    print('\n')
+    printSlow(f"Now {name}, the first thing you do is notice a cuff bracelet made from gold and copper with incrusted\
+             gems that contains a lot of weird engraved text in some kind of foreign language not known to to your kind")
+    # PlayerStatus()
+    printSlow("You discover that it cannot be taken off and decide not to worry about it too much and focus on\
+             what is directly in front of you.")
+    print('\n')
+    print('\n')

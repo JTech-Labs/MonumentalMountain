@@ -108,8 +108,8 @@ while True:
     elif action == "Look": continue
 
     elif action == "Talk" or action == "Speak":
-        if NPCconvers[currentRoom]["IS"] == True:
-            print(f"Not yet implemented...")
+        if NPCconvers[currentRoom][IS] == True:
+            print("Not yet implemented...")
         else: print("There is no one to talk to here.")
 
     # Exit program

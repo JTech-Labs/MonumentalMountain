@@ -1,7 +1,6 @@
 #Improts
 import sys, time, os
 from story import NPCconvers
-from intro import name
 
 #Stats
 health = 100
