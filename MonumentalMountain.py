@@ -4,12 +4,11 @@ from intro import intro, name
 clear()
 
 introchoice = input("Would you like the introduction [Y/n]?:\t").title()
-if introchoice == "Y": intro()
+if introchoice == "Y" or introchoice == "Yes": intro()
 else: print('\n')
 
-currentRoom = "Superliminal Space"
 
-while True:
+currentRoom = "Superliminal Space"
 
     printSlow(msg)
 
@@ -43,7 +42,7 @@ while True:
             #break
 
     # Accepts player's move as input
-    userInput = input("Enter your move:\n")
+    userInput = input("Enter your move:\n> ")
 
     # Splits move into words
     nextMove = userInput.split(' ')
@@ -91,8 +90,8 @@ while True:
             msg = f"Can't find {item}"
     
     elif action == "Stats":
-        msg = f"\n\n Inventory: {inventory} \n Health: {health} \n Protection: {protection}\
-            \n Power: {power} \n Magic: {magic} \n\n"
+        msg = f"\n\n{name}:\n\t Inventory: {inventory} \n\t Health: {health} \n\t Protection: {protection}\
+            \n\t Power: {power} \n\t Magic: {magic} \n\n"
     
     elif action == "Compass":
         if "compass" in inventory:
@@ -103,7 +102,9 @@ while True:
         msg = "Possible actions:\n\t Look: Repeat prompt\n\tCompass: Get extra help if you need it\
             \n\tStats: Print your stats\n\tHelp: Prints this\n\tYou can \"Go\":\n\t\tForewards\n\t\tBack\n\t\t\
             Left\n\t\tRight\n\tYou can \"Get\" the item in that room that you are in if you don't already have it.\n\t\
-                And you can always \"Exit\""
+            You can \"Speak\" or \"Talk\" [Name of NPC] to talk with a Non-Playable Character, \
+            Do not use anything apart from initial keyword and the name of the NPC.\n\
+            And you can always \"Exit\""
     
     elif action == "Look": continue
 
@@ -120,4 +121,4 @@ while True:
 
     # Any other commands invalid
     else:
-        msg = "Invalid command"
+        msg = "Invalid command\n"

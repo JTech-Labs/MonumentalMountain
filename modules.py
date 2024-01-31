@@ -1,6 +1,6 @@
 #Improts
 import sys, time, os
-from story import NPCconvers
+# from story import NPCconvers
 
 #Stats
 health = 100
@@ -14,14 +14,16 @@ inventory = []
 #     print(f"\n\nYou are: {name}. These are your stats\n\n Inventory: {inventory} \n Health: {health} \n\
 #          Protection: {protection} \n Power: {power} \n Magic: {magic} \n\n")
 
+# Function to clear the screen
 def clear():
     os.system('cls' if os.name == 'nt' else "printf '\033c'")
 
+# Function used to print the text as if it where being typed
 def printSlow(stri):
     for letter in stri:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(0.5)
+        time.sleep(0.05)
 
 # line_len_limit = 80
 
