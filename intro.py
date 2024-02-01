@@ -49,7 +49,8 @@ the terrain, but you must make the vital decisions as you progress. If you ever 
 !!WARNING!!, THIS GAME IS INPIRED BY COLOSSAL CAVE ADVENTURE, YOUR PROGRESS WILL NOT BE SAVED!, \
 YOU HAVE BEEN WARNED!")
 
-    print("The available prompts will be directions (e.g. forewards, back, right, left), the word \"item\".")
+    print("The available prompts will be directions (e.g. forewards, back, right, left) and several more,\
+ if you need help, just type in \"Help\".\n")
 
     yesno1 = input("Are you ready, *yes* or *no*?: ").title()
 
@@ -72,14 +73,14 @@ YOU HAVE BEEN WARNED!")
     printSlow("You don't remember anything, not even your name or age. All you know is that you are at the edge of\
  a crossroads and that something is forcing you to move forwards")
     print('\n')
-    global name
     name = input("After some consideration, you decide to refer to yourself as:   ")
 
     print('\n')
     printSlow(f"Now {name}, the first thing you do is notice a cuff bracelet made from gold and copper with incrusted\
- gems that contains a lot of weird engraved text in some kind of foreign language not known to to your kind")
+ gems that contains a lot of weird engraved text in some kind of foreign language not known to to your kind.\n")
     # PlayerStatus()
     printSlow("You discover that it cannot be taken off and decide not to worry about it too much and focus on\
  what is directly in front of you.")
     print('\n')
     print('\n')
+    return name

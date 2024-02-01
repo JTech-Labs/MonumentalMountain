@@ -7,9 +7,9 @@ This program is written by British secondary schoolers in our spare time so plea
 
 ## Releases
 
-For the downloads please go to the [*`releases`*](https://github.com/JTech-Labs/MonumentalMountain/releases) section of the repo and just run the executable for your respective OS (currently only Windows). Alpha releases will be codenamed `"Quantum Rock"`; Beta releases will be codenamed `"Small Stone"`; and Stable releases will have their own codename.
+For the downloads please go to the [*`releases`*](https://github.com/JTech-Labs/MonumentalMountain/releases) section of the repo and just run the executable for your respective OS (currently only Windows). Alpha releases will be codenamed `"Quantum Rock"`, Beta releases will be codenamed `"Small Stone"`, and Stable releases will have their own codename.
 
-From v0.0.2 the way the code worked and was organised got remade which will help boost development speed. The v0.0.2r is the same as previous just replaced with the new code format. 
+From v0.0.2 the way the code worked and was organised got remade which will help boost development speed. The v0.0.2Alpha-r is the same as previous just replaced with the new code format. All packages before v0.0.2Alpha-r where made with [pyInstaller](https://pyinstaller.org), all packeges after this one are make with [Nuitka](https://nuitka.net).
 
 ## In game
 

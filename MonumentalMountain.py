@@ -1,19 +1,22 @@
 from modules import health,protection,power,magic,inventory,clear,printSlow,msg,vowels
 from story import places,msgs,compassMsgs,IS,NPCconvers
-from intro import intro, name
+from intro import intro
 clear()
 
 introchoice = input("Would you like the introduction [Y/n]?:\t").title()
-if introchoice == "Y" or introchoice == "Yes": intro()
-else: print('\n')
+if introchoice == "Y" or introchoice == "Yes": name = intro()
+else:
+    name = input("You decide to refer to yourself as:\n>")
+    print('\n')
 
 
 currentRoom = "Superliminal Space"
 
-    printSlow(msg)
-
-    printSlow(msgs[currentRoom])
-
+while True:
+    clear()
+    printSlow(f"{msg}\n\n")
+    #printSlow(msgs[currentRoom])
+    #print('\n'*2)
     # Item indicator
     if "Item" in places[currentRoom].keys():
 
@@ -42,7 +45,7 @@ currentRoom = "Superliminal Space"
             #break
 
     # Accepts player's move as input
-    userInput = input("Enter your move:\n> ")
+    userInput = input("\n\nEnter your move:\n> ")
 
     # Splits move into words
     nextMove = userInput.split(' ')
@@ -91,7 +94,7 @@ currentRoom = "Superliminal Space"
     
     elif action == "Stats":
         msg = f"\n\n{name}:\n\t Inventory: {inventory} \n\t Health: {health} \n\t Protection: {protection}\
-            \n\t Power: {power} \n\t Magic: {magic} \n\n"
+\n\t Power: {power} \n\t Magic: {magic} \n\n"
     
     elif action == "Compass":
         if "compass" in inventory:
@@ -99,14 +102,15 @@ currentRoom = "Superliminal Space"
         else: msg = "You don't have a compass."
     
     elif action == "Help":
-        msg = "Possible actions:\n\t Look: Repeat prompt\n\tCompass: Get extra help if you need it\
-            \n\tStats: Print your stats\n\tHelp: Prints this\n\tYou can \"Go\":\n\t\tForewards\n\t\tBack\n\t\t\
-            Left\n\t\tRight\n\tYou can \"Get\" the item in that room that you are in if you don't already have it.\n\t\
-            You can \"Speak\" or \"Talk\" [Name of NPC] to talk with a Non-Playable Character, \
-            Do not use anything apart from initial keyword and the name of the NPC.\n\
-            And you can always \"Exit\""
+        msg = "Possible actions:\n\tLook: Repeat prompt\n\tCompass: Get extra help if you need it\
+\n\tStats: Print your stats\n\tHelp: Prints this\n\tYou can \"Go\":\n\t\tForewards\n\t\tBack\n\t\t\
+Left\n\t\tRight\n\tYou can \"Get\" the item in the room that you are in if you don't already have it.\n\t\
+You can \"Speak\" or \"Talk\" [Name of NPC] to talk with a Non-Playable Character, \
+Do not use anything apart from initial keyword and the name of the NPC.\n\
+And you can always \"Exit\"\n"
     
-    elif action == "Look": continue
+    elif action == "Look":
+        continue
 
     elif action == "Talk" or action == "Speak":
         if NPCconvers[currentRoom][IS] == True:
@@ -115,8 +119,8 @@ currentRoom = "Superliminal Space"
 
     # Exit program
     elif action == "Exit":
-        msg = 'You have left the realm, see you later!'
         clear()
+        printSlow('You have left the realm, see you later!')
         quit()
 
     # Any other commands invalid

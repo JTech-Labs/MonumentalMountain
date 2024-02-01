@@ -1,5 +1,5 @@
 places = {
-    'Superliminal Space': {'Forewards': 'Mountain Base', 'Right': 'Forrest', 'Left': 'Dessert'},
+    'Superliminal Space': {'Forewards': 'Mountain Base', 'Right': 'Forrest', 'Left': 'Desert Start', 'Item': 'Coin'},
     'Desert Start': {'Forewards': ''},
 }
 
