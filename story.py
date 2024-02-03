@@ -1,8 +1,12 @@
+currentRoom = "Superliminal Space"
+
 places = {
-    'Superliminal Space': {'Forewards': 'Mountain Base', 'Right': 'Forrest', 'Left': 'Desert Start', 'Item': 'Coin'},
-    'Mountain Bade': {'Item': 'Compass'},
+    'Superliminal Space': {'Forewards': 'Mountain Base', 'Right': 'Forrest Start', 'Left': 'Desert Start'},
+    'Mountain Base': {'Back': 'Superliminal Space', 'Item': 'Whacky Potion'},
+    'Forrest Start': {'Back': 'Superliminal Space'},
     'Desert Start': {'Forewards': 'Desert Canyon', 'Right': 'Desert Shadow', 'Left': 'Desert Rocks', 'Back': 'Superliminal Space'},
-    'Desert Shadow': {'Back': 'Desert Start', 'PU': {'Health': 100, 'Protection': 100, 'Power': 100, 'Magic': 100}},
+    'Mountain Bade': {'Item': 'Compass'},
+    'Desert Shadow': {'Back': 'Desert Start', 'Item': 'Coin'},
     'Desert Rocks': {'Secret': ["a0ead0b63e9ddc749106e77da630106b5be5d9a5c0be43e96098325f7ba9377d",
 "b743d651ac4a114940c1d141929b9ee08ad3c5cdc38e1d299bd307e4811639ae"], 'Back': 'Desert Start'},
     'Desert Canyon': {'Boss': 'Cocroach', 'Back': 'Desert Start', 'Item': 'Sand'},
@@ -15,6 +19,10 @@ msgs = {
  life-filled forest. The treetops are shrouded by storm clouds and a dark atmosphere\
  emanates from it. The left path leads to a barren and arid desert with a few littered\
  canyons and scorching heat that can be felt even from here.",
+
+    'Forrest Start': "You decide that this is the best option for food and that it will be easier to survive.",
+
+    'Mountain Base': "You are filled with a burning curiosity and decide to make headway for the mountain.",
     
     'Desert Start': "Even though you might not find water there you think it is the best option for refuge. \
 You slowly stroll forwards, brushing the sand with your feet as the sun scorches the back of your neck. \
@@ -24,8 +32,7 @@ Or you could carry on forwards just incase you find anything better.",
     
     'Desert Shadow': "After some walking, you find a palm tree with an \"X\" carved into it, \
 as this had always meant treasure in your world, you dig a few centimeters and find a small coin, \
-when you go to touch it, a surge of power ruches through you as you feel an increase of energy traveling through you body. \
-You blink for a second and the coin disappears. Now you can only go back.",
+when you go to touch it, a surge of power ruches through you as you feel an increase of energy traveling through you body. Now you can only go back.",
 
     'Desert Rocks': "You find a few boulders grouped seemingly randomly around a larger center boulder \
 where a line of text written in the same language as on your cuff bracelet  an ark "
@@ -41,11 +48,11 @@ and you don't have any way of stopping it. \nIt all goes white."}
 }
 
 compassMsgs = {
-    'Superliminal Space': 'This is a superliminal place.\n\
+    'Superliminal Space': {'msg': "This is a superliminal place.\n\
 Superliminal is a term used in psychology and physiology to describe mental activity that is above the threshold of the subconscious. \
 It is the opposite of subliminal, which refers to mental activity that is below the threshold of conscious awareness. \
-The term supraliminal is also used to describe mental activity that is above the threshold of consciousness.',
-    'Desert Start': '',
+The term supraliminal is also used to describe mental activity that is above the threshold of consciousness.", 'T': True},
+    'Desert Start': {'T': False},
 }
 
 NPCmsgs = {
@@ -56,12 +63,12 @@ NPCmsgs = {
 The cockroach looks at you with confusion. To your surprise it responds and says 'What are you doing? I am the guardian of the Isoriac dessert. \
 My unlucky body normally frightens most people but I'm actually very friendly! You discover that its name in Inorilarn, \
 the long forgoten language of this land, and that it has been here since the first ray of light dried the sandy place. \
-He hasn't talked to anyone in a lot of time as most adventurers are too terrified.", 'PU': []},
+He hasn't talked to anyone in a lot of time as most adventurers are too terrified.", 'PU': [0,0,0,0,'']},
     },
     'Bosses': {
         'Cocroach': {'FightLose': "You fight until you don't have any more energy even though the beast doesn't make a single move. \
-The cockroach looks at you with sorrow and disappointment. You find a hill up which you can go back..", 'Req': [200,100,100,100,"Coin"],
-'FightWin': "You win!", 'Effects': {'Health': -100, 'Protection': -20, 'Power': -10, 'Magic': 0}},
+The cockroach looks at you with sorrow and disappointment. You find a hill up which you can go back..", 'Req': [100,100,100,100,"Coin"],
+'FightWin': "You win!", 'Effects': {'Health': -99, 'Protection': -20, 'Power': -10, 'Magic': 0}},
     },
 
     'NPCS': {
@@ -70,6 +77,9 @@ The cockroach looks at you with sorrow and disappointment. You find a hill up wh
 }
 
 Items = {
-    'Compass': {'Health': 0, 'Protection': 0, 'Power': 0, 'Magic': 0},
-    'Coin': {'Health': -5, 'Protection': 5, 'Power': -5, 'Magic': 0}
+    'Compass': {'Buffs': {'Health': 0, 'Protection': 0, 'Power': 0, 'Magic': 0}, 'SingleUse': False, 'msgt': compassMsgs[currentRoom]['T'], 'msg': compassMsgs[currentRoom]['msg']},
+    'Coin': {'Buffs': {'Health': 0, 'Protection': 2, 'Power': 0, 'Magic': 1}},
+    'Sand': {'Buffs': {'Health': -10, 'Protection': 5, 'Power': -10, 'Magic': 0}},
+    'Hpotion Level1': {'Buffs': {'Health': 10, 'Protection': 0, 'Power': 0, 'Magic': 0}, 'SingleUse': True, 'msgt': True, 'msg': 'Your health has increased by 10'},
+    'Whacky Potion': {'Buffs': {'Health': -10, 'Protection': 0, 'Power': 0, 'Magic': 0}, 'SingleUse': True, 'msgt': True, 'msg': 'Your health has decreased by 10'},
 }

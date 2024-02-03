@@ -1,3 +1,0 @@
-"Even though you see this unknown animal very frightening, you decided to gently hush in order to calm it down. \
-The cockroach looks at you with confusion. To your surprise it responds and says 'What are you doing? I am the guardian of the Isoriac dessert. My unlucky body normally frightens most people but I'm actually very friendly! \
-You discover that its name in Inorilarn, the long forgoten language of this land, and that it has been here since the first ray of light dried the sandy land. He hasn't talked to anyone in a lot of time as most adventurers are too terrified."
