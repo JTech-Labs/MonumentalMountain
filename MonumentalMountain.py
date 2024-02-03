@@ -26,12 +26,17 @@ while True:
         print('\n'*2)
     
     if health <= 0:
-        printSlow("Your health is 0 or less. You died. Thanks for playing!")
+        printSlow("Your health is 0 or less. You died.")
     
     if power < 0:
         power = 0
     
-
+    if protection < 0:
+        protection = 0
+    
+    if magic < 0:
+        magic = 0
+    
     ## Place Checkers
 
     # Item indicator
