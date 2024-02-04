@@ -34,11 +34,11 @@ while True:
         power -=1
         timer = 0
     if health <= 50 and health >= 45:
-        printSlow("Your health is a bit low, you might want to heal by using a food or drink.")
+        printSlow("Your health is a bit low, you might want to heal by using a food or drink.\n")
     if health <= 40 and health >= 30:
-        printSlow("Your health is quite low, you might want to heal by using a food or drink.")
+        printSlow("Your health is quite low, you might want to heal by using a food or drink.\n")
     if health <= 20 and health >= 0:
-        printSlow("Your health is very low, it is recomended that you heal as quick as possible.")
+        printSlow("Your health is very low, it is recomended that you heal as quick as possible.\n")
 
     #Print Room message unless option is turned off
     if TFmsgs == True:
@@ -98,7 +98,7 @@ while True:
         if f"{places[currentRoom]['Secret']}s" not in PowerUps:
             realname = input("Please enter your real name:\n>")
             realnameHash = HashPassword(realname)
-            print(realnameHash)
+            #print(realnameHash)
             if  realnameHash in places[currentRoom]['Secret']:
                 print(secMsgs[currentRoom][realnameHash[-2:]])
             else: clear()
@@ -131,7 +131,13 @@ while True:
 
         try:
             currentRoom = places[currentRoom][direction]
-            msg = f"You go {direction}"
+            if 'Req' in places[currentRoom]:
+                if places[currentRoom]['Req'] in inventory:
+                    msg = f"You go {direction}"
+                else:
+                    msg = f"You can\'t go that way"
+                    currentRoom = places[currentRoom]['Back']
+            else: msg = f"You go {direction}"
 
         except:
             msg = "You can't go that way."
@@ -148,12 +154,19 @@ while True:
                     msg = f"{item} retrieved!"
 
                     if 'SingleUse' in Items[item]:
+                    
+                        if Items[item]["SingleUse"]:
+                            PowerUps.append(f"{currentRoom}-{nearbyItem}")
+                        elif not Items[item]['SingleUse']:
+                            health += Items[item]['Buffs']["Health"]
+                            protection += Items[item]['Buffs']["Protection"]
+                            power += Items[item]['Buffs']["Power"]
+                            magic += Items[item]['Buffs']["Magic"]
+                    else:
                         health += Items[item]['Buffs']["Health"]
                         protection += Items[item]['Buffs']["Protection"]
                         power += Items[item]['Buffs']["Power"]
                         magic += Items[item]['Buffs']["Magic"]
-                        if Items[item]["SingleUse"]:
-                            PowerUps.append(f"{currentRoom}-{nearbyItem}")
 
                 else:
                     msg = f"You already have the {item}"
@@ -161,7 +174,7 @@ while True:
             else:
                 msg = f"Can't find {item}"
         except:
-           msg = f"Can't find {item}"
+            msg = f"Can't find {item}"
     
     #Player Statistics and Inventory
     elif action == "Stats":
@@ -203,8 +216,8 @@ You can \"Fight\" a boss in the room you are in\n\tAnd you can always \"Exit\"\n
 
     #Talk with characters, NPCs or Bosses
     elif action == "Talk" or action == "Speak":
-        if 'NPC' in places[currentRoom].keys() or 'Boss' in places[currentRoom].keys():
-            if item == places[currentRoom]['NPC'] or item == places[currentRoom]['Boss']:
+        if 'NPC' in places[currentRoom]:
+            if item == places[currentRoom]['NPC']:
                 msg = NPCmsgs['NPC'][item]['Conv']
                 if 'PU' in NPCmsgs['NPC'][item]:
                     if f"NPCPU{item}" not in PowerUps:
@@ -212,8 +225,22 @@ You can \"Fight\" a boss in the room you are in\n\tAnd you can always \"Exit\"\n
                         protection += NPCmsgs['NPC'][item]["PU"][1]
                         power += NPCmsgs['NPC'][item]["PU"][2]
                         magic += NPCmsgs['NPC'][item]["PU"][3]
-                        if NPCmsgs['NPC']["PU"][item][3] not in inventory:
-                            inventory.append(NPCmsgs['NPC'][item]["PU"][3])
+                        if NPCmsgs['NPC']["PU"][item][4] not in inventory:
+                            inventory.append(NPCmsgs['NPC'][item]["PU"][4])
+                        PowerUps.append(f"NPCPU{item}")
+            else: msg = f"Can't find \"{item}\" here."
+
+        elif 'Boss' in places[currentRoom]:
+            if item == places[currentRoom]['Boss']:
+                msg = NPCmsgs['NPC'][item]['Conv']
+                if 'PU' in NPCmsgs['NPC'][item]:
+                    if f"NPCPU{item}" not in PowerUps:
+                        health += NPCmsgs['NPC'][item]["PU"][0]
+                        protection += NPCmsgs['NPC'][item]["PU"][1]
+                        power += NPCmsgs['NPC'][item]["PU"][2]
+                        magic += NPCmsgs['NPC'][item]["PU"][3]
+                        if NPCmsgs['NPC'][item]["PU"][4] not in inventory:
+                            inventory.append(NPCmsgs['NPC'][item]["PU"][4])
                         PowerUps.append(f"NPCPU{item}")
             else: msg = f"Can't find \"{item}\" here."
 
@@ -228,35 +255,50 @@ You can \"Fight\" a boss in the room you are in\n\tAnd you can always \"Exit\"\n
 
     #Fight Bosses
     elif action == "Fight":
-        if "Boss" in places[currentRoom]:
-            if f"{places[currentRoom]['Boss']}bw" not in PowerUps:
-                if NPCmsgs["Bosses"][places[currentRoom]["Boss"]]["Req"][0] <= health and NPCmsgs["Bosses"][places[currentRoom]["Boss"]]["Req"][1] <= protection and NPCmsgs["Bosses"][places[currentRoom]["Boss"]]["Req"][2] <= power and NPCmsgs["Bosses"][places[currentRoom]["Boss"]]["Req"][3] <= magic and NPCmsgs["Bosses"][places[currentRoom]["Boss"]]["Req"][4] in inventory:
-                    PowerUps.append(f"{places[currentRoom]['Boss']}bw")
-                    msg = {NPCmsgs["Bosses"][places[currentRoom]["Boss"]]["FightWin"]}
+        try:
+            if "Boss" in places[currentRoom]:
+                if item == places[currentRoom]['Boss']:
+                    if f"{places[currentRoom]['Boss']}bw" not in PowerUps:
+                        if NPCmsgs["Bosses"][places[currentRoom]["Boss"]]["Req"][0] <= health and NPCmsgs["Bosses"][places[currentRoom]["Boss"]]["Req"][1] <= protection and NPCmsgs["Bosses"][places[currentRoom]["Boss"]]["Req"][2] <= power and NPCmsgs["Bosses"][places[currentRoom]["Boss"]]["Req"][3] <= magic and NPCmsgs["Bosses"][places[currentRoom]["Boss"]]["Req"][4] in inventory:
+                            PowerUps.append(f"{places[currentRoom]['Boss']}bw")
+                            msg = {NPCmsgs["Bosses"][places[currentRoom]["Boss"]]["FightWin"]}
 
-                    PowerUps.append(currentRoom)
-                    health += NPCmsgs['Bosses'][item]["Health"]
-                    protection += NPCmsgs['Bosses'][item]["Protection"]
-                    power += NPCmsgs['Bosses'][item]["Power"]
-                    magic += NPCmsgs['Bosses'][item]["Magic"]
-                    if NPCmsgs['Bosses'][item]["Item"] not in inventory:
-                        inventory.append(NPCmsgs['Bosses'][item]["Item"])
+                            PowerUps.append(f"{places[currentRoom]['Boss']}bw")
+                            health += NPCmsgs['Bosses'][item]['Effects']["Health"]
+                            protection += NPCmsgs['Bosses'][item]['Effects']["Protection"]
+                            power += NPCmsgs['Bosses'][item]['Effects']["Power"]
+                            magic += NPCmsgs['Bosses'][item]['Effects']["Magic"]
+                            if NPCmsgs['Bosses'][item]['Effects']["Item"] not in inventory:
+                                inventory.append(NPCmsgs['Bosses'][item]['Effects']["Item"])
 
-                else:
-                    msg = f"{NPCmsgs['Bosses'][places[currentRoom]['Boss']]['FightLose']}\nYour stats didn\'t meet the requirements to beat this Boss"
+                        else:
+                            msg = f"{NPCmsgs['Bosses'][places[currentRoom]['Boss']]['FightLose']}\nYour stats didn\'t meet the requirements to beat this Boss"
+                    else: msg = "You have already fought this boss and they have despawned."
+                else:  msg = f"Can't find \"{item}\" here."
 
-            else: msg = "You have allready fought this boss and they have despawned."
-               
+        except: msg = f"There is no {item} here"
+
     elif action == "Drop":
         try:
             inventory.remove(item)
-            msg = f"{item} has been removed from your inventory, you can retrieve it back from where you found it."
             
             if 'SingleUse' in Items[item]:
+                if Items[item]['SingleUse']:
+                    msg = f"{item} has been removed from your inventory, it breaks on the ground and dissapears, you can\'t get it back from where you found it."
+                elif not Items[item]['SingleUse']:
+                    health -= Items[item]['Buffs']["Health"]
+                    protection -= Items[item]['Buffs']["Protection"]
+                    power -= Items[item]['Buffs']["Power"]
+                    magic -= Items[item]['Buffs']["Magic"]
+                    msg = f"{item} has been removed from your inventory, you can retrieve it back from where you found it."
+                    
+            else:
                 health -= Items[item]['Buffs']["Health"]
                 protection -= Items[item]['Buffs']["Protection"]
                 power -= Items[item]['Buffs']["Power"]
                 magic -= Items[item]['Buffs']["Magic"]
+                msg = f"{item} has been removed from your inventory, you can retrieve it back from where you found it."
+
         except:
             msg = "You dont have that item"
 
@@ -278,7 +320,7 @@ You can \"Fight\" a boss in the room you are in\n\tAnd you can always \"Exit\"\n
 
     #Teleport
     elif action == "Tp":
-        if item in places.keys():
+        if item in places:
             currentRoom = item
             msg = f'You are in {currentRoom}'
         else: msg = "No such place"
