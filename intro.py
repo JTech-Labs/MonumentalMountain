@@ -15,7 +15,7 @@ name = ""
 
 #Intro
 def intro():
-    printSlow("Welcome to MonumentalMountain Alpha v0.0.2r Created by GAMAX-INTERACTIVE")
+    printSlow("Welcome to MonumentalMountain Alpha v0.0.3 Created by GAMAX-INTERACTIVE")
     print('\n')
 
     printSlow("Legends have been told about the Mysterious Monumental Mountain,\
@@ -38,7 +38,7 @@ ready would be chosen to go and stand for their species. ")
     print('\n')
     print('\n')
     printSlow("You")
-    time.sleep(2)
+    time.sleep(10)
     print('\n')
     clear()
     print('\n')
@@ -60,7 +60,7 @@ YOU HAVE BEEN WARNED!")
         clear()
     else:
         printSlow("You have decided that you are not yet ready for this. The council will chose someone\
-    =else to replace you. Remember though, you can always come back when you are ready...")
+ else to replace you. Remember though, you can always come back when you are ready...")
         quit()
 
 

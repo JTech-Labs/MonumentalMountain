@@ -9,6 +9,9 @@ magic = 0
 inventory = [""]
 PowerUps = [""]
 
+## Remember to add this later
+#mainHand = [""]
+
 # Function to clear the screen
 def clear():
     os.system('cls' if os.name == 'nt' else "printf '\033c'")

@@ -135,7 +135,7 @@ while True:
                 if places[currentRoom]['Req'] in inventory:
                     msg = f"You go {direction}"
                 else:
-                    msg = f"You can\'t go that way"
+                    msg = "You can\'t go that way"
                     currentRoom = places[currentRoom]['Back']
             else: msg = f"You go {direction}"
 
@@ -202,12 +202,12 @@ while True:
     #Displays Help message with all available functions
     elif action == "Help":
         msg = "Possible actions:\n\tLook: Repeat prompt\n\tCompass: Get extra help if you need it\
-\n\tStats: Print your stats\n\tHelp: Prints this\n\tYou can \"Go\":\n\t\tForewards\n\t\tBack\n\t\t\
-Left\n\t\tRight\n\tYou can \"Get\" the item in the room that you are in if you don't already have it.\n\t\
-You can \"Drop\" an item you have in your inventory\n\tYou can \"Use\" an Item if applicable\n\t\
-You can \"Speak\" or \"Talk\" [Name of NPC] to talk with a Non-Playable Character, \
-Do not use anything apart from initial keyword and the name of the NPC (This also works with bosses).\n\t\
-You can \"Fight\" a boss in the room you are in\n\tAnd you can always \"Exit\"\n"
+\n\tStats: Print your stats\n\tHelp: Prints this\n\tGo:\n\t\tForwards\n\t\tBackwards\n\t\t\
+Left\n\t\tRight\n\tGet: [The item you want if you don't already have it].\n\t\
+Drop: [Any item in your inventory]\n\tUse: [An Item in your inventory(if it is usable, use this instead of eat or drink)]\n\t\
+Speak/Talk: [Any NPC or character in that room (, \
+Do not use anything apart from initial keyword and the name of the NPC (This also works with bosses)).\n\t\
+Fight: [The boss in the room you are in]\n\tAnd you can always \"Exit\"\n\nIf you need more help, plese see Features.md"
     
     #Reprints the current room message 
     elif action == "Look":
