@@ -9,7 +9,7 @@ MonumentalMountain uses several systems to keep track of Bosses, NPCs, the playe
 ## Stats
 Stats are different values that tell you about how your character is.
 
-- Inventory
+- Inventory -> These are all the items you have
 
 ## Items
 These are the things that are added to your inventory, they can give you buffs (Power Ups) and have special uses. There are several rarity levels out of 100. The higher the rarity, the better the item (normally).
@@ -24,6 +24,6 @@ __*!!ATTENTION!!*__ If for example you have an item that buffs you ten points an
 * Wand -> Lvl - 80. Buffs: +50 Health, +50 Protection, +90 Power, +30 Magic
 
 ### Single-Use
-These Items you can pick up and use only once (mostly single boosts, like food or potions). You can drop these but they will break on the floor and you won't be able to get it back.
+These Items you can pick up and use only once (mostly single boosts, like food or potions). You can drop these but they will break on the floor and you won't be able to get them back.
 
 - Bread Loaf -> Buffs: +5 Health, +2 Power

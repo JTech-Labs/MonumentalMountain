@@ -6,7 +6,7 @@ health = 100
 protection = 0
 power = 0
 magic = 0
-inventory = [""]
+inventory = ["", 'Special Torch']
 PowerUps = [""]
 
 ## Remember to add this later

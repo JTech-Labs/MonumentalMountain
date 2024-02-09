@@ -187,7 +187,7 @@ while True:
     
 
     # Gives the compass messages
-    elif action == "Use" or action == "Eat":
+    elif action == "Use":
         if item in inventory:
             if 'SingleUse' in Items[item]:
                 if Items[item]['msgt']:
@@ -255,6 +255,7 @@ Fight: [The boss in the room you are in]\n\tAnd you can always \"Exit\"\n\nIf yo
                 msg = NPCmsgs['NPCS'][item]['Tex']
             else: msg = f"Can't find the sign \"{item}\" here."
         else: print("There are no signs here.")
+   
 
     #Fight Bosses
     elif action == "Fight":
@@ -299,7 +300,6 @@ Fight: [The boss in the room you are in]\n\tAnd you can always \"Exit\"\n\nIf yo
                 else:  msg = f"Can't find \"{item}\" here."
 
         except: msg = f"There is no {item} here"
-
 
     elif action == "Drop":
         try:

@@ -3,11 +3,11 @@ from random import randint
 currentRoom = "Superliminal Space"
 
 places = {
-    'Superliminal Space': {'Forwards': 'Mountain Base', 'Right': 'Forrest Start', 'Left': 'Desert Start'},
+    'Superliminal Space': {'Forwards': 'Mountain Base', 'Right': 'Forrest Start', 'Left': 'Desert Start', 'Down': 'Tilled Land'},
     'Mountain Base': {'Backwards': 'Superliminal Space', 'Item': 'Whacky Potion'},
     'Forrest Start': {'Backwards': 'Superliminal Space', 'Item': 'Wand'},
     'Desert Start': {'Forwards': 'Desert Canyon', 'Right': 'Desert Shadow', 'Left': 'Desert Rocks', 'Backwards': 'Superliminal Space', 'Item': 'Bread Loaf'},
-    'Mountain Bade': {'Item': 'Compass'},
+    'Tilled Land': {'Item': 'Compass'},
     'Desert Shadow': {'Backwards': 'Desert Start', 'Item': 'Coin'},
     'Desert Rocks': {'Secret': [
     "a0ead0b63e9ddc749106e77da630106b5be5d9a5c0be43e96098325f7ba9377d",
@@ -43,7 +43,10 @@ when you go to touch it, a surge of power ruches through you as you feel an incr
 where a line of text written in the same language as on your cuff bracelet  an ark ",
 
     'Desert Canyon': "You slowly go down to the canyon to see what's there. As you preceed, \
-you see the great expanse of the land, with the yellow sand that expands to the horizon."
+you see the great expanse of the land, with the yellow sand that expands to the horizon.",
+
+    'Tilled Land': "You decided that you don't want to go in the traditional directions presented to you, \
+and you decide to start digging downwards. You appear into a secret network of tunnels underneath the map that no oe knew existed."
 
 }
 
@@ -65,6 +68,7 @@ Superliminal is a term used in psychology and physiology to describe mental acti
 It is the opposite of subliminal, which refers to mental activity that is below the threshold of conscious awareness. \
 The term supraliminal is also used to describe mental activity that is above the threshold of consciousness.", 'T': True},
     'Desert Start': {'T': False},
+    'Tilled land': {'T': False}
 }
 
 NPCmsgs = {
@@ -79,8 +83,8 @@ He hasn't talked to anyone in a lot of time as most adventurers are too terrifie
     },
     'Bosses': {
         'Cocroach': {'FightLose': "You fight until you don't have any more energy even though the beast doesn't make a single move. \
-The cockroach looks at you with sorrow and disappointment. You find a hill up which you can go back..", 'Req': [100,40,80,20,"Coin"],
-'FightWin': "You win!", 'Effects': {'Health': -99, 'Protection': -30, 'Power': -70, 'Magic': 0, 'Item': 'Special Torch'}},
+The cockroach looks at you with sorrow and disappointment. You find a hill up which you can go back..", 'Req': [100,40,80,20,['Coin','Wand']],
+'FightWin': "You win!", 'Effects': {'Health': -99, 'Protection': -30, 'Power': -70, 'Magic': 0, 'Item': ['Torch', 'Red Potion']}},
     },
 
     'NPCS': {
@@ -92,8 +96,10 @@ Items = {
     'Compass': {'Buffs': {'Health': 0, 'Protection': 0, 'Power': 0, 'Magic': 0}, 'SingleUse': False, 'msgt': compassMsgs[currentRoom]['T'], 'msg': compassMsgs[currentRoom]['msg']},
     'Coin': {'Buffs': {'Health': 2, 'Protection': 2, 'Power': 0, 'Magic': 1}},
     'Sand': {'Buffs': {'Health': -10, 'Protection': 5, 'Power': -10, 'Magic': 0}},
-    'Bread Loaf': {'Buffs': {'Health': 5, 'Protection': 0, 'Power': 2, 'Magic': 0}, 'SingleUse': True, 'msgt': True, 'msg': 'Your health has increased by 10 and you power has increased by 5'},
+    'Bread Loaf': {'Buffs': {'Health': 5, 'Protection': 0, 'Power': 2, 'Magic': 0}, 'SingleUse': True, 'msgt': True, 'msg': 'Your health has increased by 5 and you power has increased by 2'},
     'Whacky Potion': {'Buffs': {'Health': randint(-11,11), 'Protection':  randint(-5,5), 'Power': randint(-5,5), 'Magic': randint(-5,5)}, 'SingleUse': True, 'msgt': True, 'msg': 'Random effects are upon you!'},
     'Wand': {'Buffs': {'Health': 50, 'Protection': 50, 'Power': 90, 'Magic': 30}},
     'Special Torch': {'Buffs': {'Health': 0, 'Protection': 0, 'Power': 0, 'Magic': 0}},
+    'Red Potion': {'Buffs': {'Health': 20, 'Protection': 0, 'Power': 7, 'Magic': 0}, 'SingleUse': True, 'msgt': True, 'msg': 'Your health has increased by 20 and you power has increased by 7'},
+    'Torch': {'Buffs': {'Health': 0, 'Protection': 0, 'Power': 0, 'Magic': 0}},
 }
