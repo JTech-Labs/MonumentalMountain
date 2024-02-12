@@ -10,6 +10,9 @@ MonumentalMountain uses several systems to keep track of Bosses, NPCs, the playe
 Stats are different values that tell you about how your character is.
 
 - Inventory -> These are all the items you have
+- Health -> 
+- Power -> 
+
 
 ## Items
 These are the things that are added to your inventory, they can give you buffs (Power Ups) and have special uses. There are several rarity levels out of 100. The higher the rarity, the better the item (normally).

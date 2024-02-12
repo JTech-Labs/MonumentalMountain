@@ -135,7 +135,7 @@ while True:
         try:
             currentRoom = places[currentRoom][direction]
             if 'Req' in places[currentRoom]:
-                #Add several required items
+                # Add several required items # No longer needed, I have decided that you only need one "key" for each room
                 if places[currentRoom]['Req'] in inventory:
                     msg = f"You go {direction}"
                 else:
@@ -285,7 +285,7 @@ Fight: [The boss in the room you are in]\n\tAnd you can always \"Exit\"\n\nIf yo
                                     protection += NPCmsgs['Bosses'][item]['Effects']["Protection"]
                                     power += NPCmsgs['Bosses'][item]['Effects']["Power"]
                                     magic += NPCmsgs['Bosses'][item]['Effects']["Magic"]
-                                    #Add support for several dropped items
+                                    # Add support for several dropped items
                                     for gotThatItemNum in range(len(NPCmsgs['Bosses'][item]['Effects']['Item'])):
                                         if NPCmsgs['Bosses'][item]['Effects']["Item"][gotThatItemNum] not in inventory:
                                             inventory.append(NPCmsgs['Bosses'][item]['Effects']["Item"][gotThatItemNum])
@@ -360,3 +360,5 @@ Fight: [The boss in the room you are in]\n\tAnd you can always \"Exit\"\n\nIf yo
     # Any other commands invalid
     else:
         msg = "Invalid command\n"
+
+
