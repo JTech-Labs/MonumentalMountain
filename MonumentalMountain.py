@@ -1,6 +1,8 @@
 from modules import health,protection,power,magic,inventory,clear,printSlow,msg,vowels,PowerUps,HashPassword
 from story import places,msgs,NPCmsgs,secMsgs,Items,currentRoom
 from intro import intro
+import linecache
+from dump import stillunderdevelopment
 # This is MonumentalMountain Alpha v0.0.3
 # This "Alpha Game Program" (CC-BY-NO) was created by "Javier Fuentes-Hermoso"
 # MonumentalMountain is licensed under the GNU GPLv3 license by ?, part of the J-A-I INNOVATIONS
@@ -48,7 +50,14 @@ while True:
 
     #Print Room message unless option is turned off
     if TFmsgs:
-        printSlow(msgs[currentRoom])
+        #printSlow(msgs[currentRoom])
+        
+        with open("story.txt","r") as fi:
+            for ln in fi:
+                if ln.startswith(currentRoom):
+                    printSlow(ln.partition(': ')[-1])
+                    break
+
         print('\n'*2)
     
     #Reset Buffs to zero if they are less than that
@@ -67,21 +76,25 @@ while True:
     ## Place Checkers
 
     # Item indicator
-    if "Item" in places[currentRoom]:
+    stillunderdevelopment()
 
-        nearbyItem = places[currentRoom]["Item"]
+#    if "Item" in places[currentRoom]:
+        #
+        # for theItemsInTheRoom in range(places[currentRoom]["Item"]):
 
-        if nearbyItem not in inventory and f"{currentRoom}-{nearbyItem}" not in PowerUps:
-
-            if nearbyItem[-1] == 's' or nearbyItem == "Sand":
-                printSlow(f"You see {nearbyItem}")
-
-            elif nearbyItem[0] in vowels:
-                printSlow(f"You see an {nearbyItem}")
-
-            else:
-                printSlow(f"You see a {nearbyItem}")
-            print('\n')
+#       nearbyItem = places[currentRoom]["Item"] #[theItemsInTheRoom]
+#
+#        if nearbyItem not in inventory and f"{currentRoom}-{nearbyItem}" not in PowerUps:
+#
+#            if nearbyItem[-1] == 's' or nearbyItem == "Sand":
+#                printSlow(f"You see {nearbyItem}")
+#
+#            elif nearbyItem[0] in vowels:
+#                printSlow(f"You see an {nearbyItem}")
+#
+#            else:
+#                printSlow(f"You see a {nearbyItem}")
+#            print('\n')
 
     #Boss Checker
     if "Boss" in places[currentRoom] and f"{places[currentRoom]['Boss']}bw" not in PowerUps:
