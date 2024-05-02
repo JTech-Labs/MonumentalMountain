@@ -17,39 +17,6 @@ places = {
     'Further Desert Canyon': {'Backwards': 'Desert Canyon', 'Req': 'Special Torch'}
 }
 
-msgs = {
-    'Superliminal Space': "You look forwards, at the crossroads, a slightly superliminal place.\
- A path directly ahead of you leads to a giant grey, snow-capped mountain shrouded by clouds\
- which half hides the bright sun. To the right there is a path leading to a green and\
- life-filled forest. The treetops are shrouded by storm clouds and a dark atmosphere\
- emanates from it. The left path leads to a barren and arid desert with a few littered\
- canyons and scorching heat that can be felt even from here.",
-
-    'Forrest Start': "You decide that this is the best option for food and that it will be easier to survive.",
-
-    'Mountain Base': "You are filled with a burning curiosity and decide to make headway for the mountain.",
-    
-    'Desert Start': "Even though you might not find water there you think it is the best option for refuge. \
-You slowly stroll forwards, brushing the sand with your feet as the sun scorches the back of your neck. \
-You see a set of large rocks to the left that look like could be good for refuge and might be a bit humid. \
-You can also see a small shadow far off to the right and think it could be an oasis. \
-Or you could carry on forwards just incase you find anything better.",
-    
-    'Desert Shadow': "After some walking, you find a palm tree with an \"X\" carved into it, \
-as this had always meant treasure in your world, you dig a few centimeters and find a small coin, \
-when you go to touch it, a surge of power ruches through you as you feel an increase of energy traveling through you body. Now you can only go backwards.",
-
-    'Desert Rocks': "You find a few boulders grouped seemingly randomly around a larger center boulder \
-where a line of text written in the same language as on your cuff bracelet  an ark ",
-
-    'Desert Canyon': "You slowly go down to the canyon to see what's there. As you preceed, \
-you see the great expanse of the land, with the yellow sand that expands to the horizon.",
-
-    'Tilled Land': "You decided that you don't want to go in the traditional directions presented to you, \
-and you decide to start digging downwards. You appear into a secret network of tunnels underneath the map that no oe knew existed."
-
-}
-
 secMsgs = {
     'Desert Rocks': {
         'ae': 'Welcome J-A-I',
@@ -92,14 +59,37 @@ The cockroach looks at you with sorrow and disappointment. You find a hill up wh
     }
 }
 
-Items = {
-    'Compass': {'Buffs': {'Health': 0, 'Protection': 0, 'Power': 0, 'Magic': 0}, 'SingleUse': False, 'msgt': compassMsgs[currentRoom]['T'], 'msg': compassMsgs[currentRoom]['msg']},
-    'Coin': {'Buffs': {'Health': 2, 'Protection': 2, 'Power': 0, 'Magic': 1}},
-    'Sand': {'Buffs': {'Health': -10, 'Protection': 5, 'Power': -10, 'Magic': 0}},
-    'Bread Loaf': {'Buffs': {'Health': 5, 'Protection': 0, 'Power': 2, 'Magic': 0}, 'SingleUse': True, 'msgt': True, 'msg': 'Your health has increased by 5 and you power has increased by 2'},
-    'Whacky Potion': {'Buffs': {'Health': randint(-11,11), 'Protection':  randint(-5,5), 'Power': randint(-5,5), 'Magic': randint(-5,5)}, 'SingleUse': True, 'msgt': True, 'msg': 'Random effects are upon you!'},
-    'Wand': {'Buffs': {'Health': 50, 'Protection': 50, 'Power': 90, 'Magic': 30}},
-    'Special Torch': {'Buffs': {'Health': 0, 'Protection': 0, 'Power': 0, 'Magic': 0}},
-    'Red Potion': {'Buffs': {'Health': 20, 'Protection': 0, 'Power': 7, 'Magic': 0}, 'SingleUse': True, 'msgt': True, 'msg': 'Your health has increased by 20 and you power has increased by 7'},
-    'Torch': {'Buffs': {'Health': 0, 'Protection': 0, 'Power': 0, 'Magic': 0}},
-}
+
+#Define Iems CLass
+class Items:
+    def __init__(self, Buffs: list, canBeUsed: bool, SingleUse: bool, msgt: bool, msg: str):
+        self.Protection = Buffs[1]
+        self.Power = Buffs[2]
+        self.Magic = Buffs[3]
+        self.canBeUsed = canBeUsed
+        self.singleUse = SingleUse
+        self.msgt = msgt
+        self.msg = msg
+
+#Define Item Objects
+Compass = Items([0,0,0,0],True,False,True, with open("story.txt","r") as fi: for ln in fi: if ln.startswith(f"C- {currentRoom}"): printSlow(ln.partition(': ')[-1]); break)
+Coin = Items([2,2,0,1],False,False,False,"")
+Sand = Items([-10,5,-10,0],False,False,False,"")
+BreadLoaf = Items([5,0,2,0],True,True,True,"Your health has increased by 5 and your power has increased by 2")
+WhackyPotion = Items([randint(-11,11),randint(-5,5),randint(-5,5),randint(-5,5)],True,True,True,"Random effects are upon you!")
+Wand = Items([50,50,90,30],False,False,False,"")
+SpecialTorch = Items([0,0,0,0],False,False,False,"")
+RedPotion = ([20,0,7,0],True,True,True,"Your health has increased by 20 and your opwer has increased by 7")
+
+##Items = {
+#    'Compass': {'Buffs': {'Health': 0, 'Protection': 0, 'Power': 0, 'Magic': 0}, 'SingleUse': False, 'msgt': compassMsgs[currentRoom]['T'], 'msg': compassMsgs[currentRoom]['msg']},
+#    'Coin': {'Buffs': {'Health': 2, 'Protection': 2, 'Power': 0, 'Magic': 1}},
+#    'Sand': {'Buffs': {'Health': -10, 'Protection': 5, 'Power': -10, 'Magic': 0}},
+#    'Bread Loaf': {'Buffs': {'Health': 5, 'Protection': 0, 'Power': 2, 'Magic': 0}, 'SingleUse': True, 'msgt': True, 'msg': 'Your health has increased by 5 and you power has increased by 2'},
+#    'Whacky Potion': {'Buffs': {'Health': randint(-11,11), 'Protection':  randint(-5,5), 'Power': randint(-5,5), 'Magic': randint(-5,5)}, 'SingleUse': True, 'msgt': True, 'msg': 'Random effects are upon you!'},
+#    'Wand': {'Buffs': {'Health': 50, 'Protection': 50, 'Power': 90, 'Magic': 30}},
+#    'Special Torch': {'Buffs': {'Health': 0, 'Protection': 0, 'Power': 0, 'Magic': 0}},
+#    'Red Potion': {'Buffs': {'Health': 20, 'Protection': 0, 'Power': 7, 'Magic': 0}, 'SingleUse': True, 'msgt': True, 'msg': 'Your health has increased by 20 and you power has increased by 7'},
+#    'Torch': {'Buffs': {'Health': 0, 'Protection': 0, 'Power': 0, 'Magic': 0}},
+#}
+
