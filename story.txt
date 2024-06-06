@@ -18,6 +18,18 @@ Tilled Land: You decided that you don't want to go in the traditional directions
 
 COMPASS
 
-Superliminal Space: This is a superliminal place. Superliminal is a term used in psychology and physiology to describe mental activity that is above the threshold of the subconscious. It is the opposite of subliminal, which refers to mental activity that is below the threshold of conscious awareness. The term supraliminal is also used to describe mental activity that is above the threshold of consciousness.
+C- Superliminal Space: This is a superliminal place. Superliminal is a term used in psychology and physiology to describe mental activity that is above the threshold of the subconscious. It is the opposite of subliminal, which refers to mental activity that is below the threshold of conscious awareness. The term supraliminal is also used to describe mental activity that is above the threshold of consciousness.
 
+NPCs
 
+NPC- Aname: Hello, I am a Non-Playable Character!
+
+NPC- Cocroach: Even though you find this unknown animal very frightening, you decide to gently hush in order to calm it down. The cockroach looks at you with confusion. To your surprise it responds and says 'What are you doing? I am the guardian of the Isoriac dessert. My unlucky body normally frightens most people but I'm actually very friendly!' You discover that its name in Inorilarn, the long forgoten language of this land, and that it has been here since the first ray of light dried the sandy place. He hasn't talked to anyone in a lot of time as most adventurers are too terrified. The Cocroach gifts you a few presents, thanking you from seeing th beauty in him, and dissapears to protect another land...
+
+NPC- Cocroach-A: The Cocroach isn't here anymore
+
+ENEMYs
+
+Enemy- Cocroach-W: You win!
+
+Enemy- Cocroach-L: You fight until you don't have any more energy even though the beast doesn't make a single move. The cockroach looks at you with sorrow and disappointment. You find a hill up which you can go back..
