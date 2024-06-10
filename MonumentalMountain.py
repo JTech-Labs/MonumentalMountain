@@ -1,8 +1,8 @@
 from modules import *
 from story import *
+import story
 from intro import intro
 import linecache
-##from dump import stillunderdevelopment
 # This is MonumentalMountain Alpha v0.0.4
 # This "Alpha Game Program" (CC-BY-NO) was created by "Javier Fuentes-Hermoso"
 # MonumentalMountain is licensed under the GNU GPLv3 license by ?, part of the J-A-I INNOVATIONS
@@ -30,20 +30,19 @@ def gameSetup():
 if __name__ == "__main__":
     #Run Game Setup and initiate variables
     name,timer,TFmsgs = gameSetup()
-    
     #Main game loop
     while True:
         
         ## Start Turn
         #Clear Screen
         clear()
+        
+        printSlow(f"{msg}\n\n")
 
         #Display death message if health is zero or less
         if health <= 0:
             printSlow("Your health is 0 or less. You died.\n\nThanks for playing. You can always replay if you want, but your progress will not have been saved.")
             quit()
-
-        printSlow(f"{msg}\n\n")
         
         #This part slowly lowers your power and health as time passes, forcing you to eat and drink
         timer += 1
@@ -91,21 +90,22 @@ if __name__ == "__main__":
         # Item indicator
         if "Item" in places[currentRoom]:
                 
-                for theItemsInTheRoom in range(places[currentRoom]["Item"]):
+                for theItemsInTheRoom in range(len(places[currentRoom]["Item"])):
+                    if places[currentRoom]["Item"][theItemsInTheRoom] != "":
+                        nearbyItem = places[currentRoom]["Item"][theItemsInTheRoom]
 
-                    nearbyItem = places[currentRoom]["Item"][theItemsInTheRoom]
+                        if nearbyItem not in inventory and f"{currentRoom}-{nearbyItem}" not in PowerUps:
 
-                    if nearbyItem not in inventory and f"{currentRoom}-{nearbyItem}" not in PowerUps:
+                            if nearbyItem[-1] == 's' or nearbyItem == "Sand":
+                                printSlow(f"You see {nearbyItem}")
 
-                        if nearbyItem[-1] == 's' or nearbyItem == "Sand":
-                            printSlow(f"You see {nearbyItem}")
+                            elif nearbyItem[0] in vowels:
+                                printSlow(f"You see an {nearbyItem}")
 
-                        elif nearbyItem[0] in vowels:
-                            printSlow(f"You see an {nearbyItem}")
-
-                        else:
-                            printSlow(f"You see a {nearbyItem}")
-                        print('\n')
+                            else:
+                                printSlow(f"You see a {nearbyItem}")
+                            print('\n')
+                    else: break
         else: continue
 
         #Boss Checker
@@ -122,14 +122,14 @@ if __name__ == "__main__":
 
         #Secret Checker
         if "Secret" in places[currentRoom]:
-            if f"{places[currentRoom]['Secret']}s" not in PowerUps:
+            if f"{currentRoom}Secret-s" not in PowerUps:
                 realname = input("Please enter your real name:\n>")
                 realnameHash = HashPassword(realname)
                 #print(realnameHash)
-                if  realnameHash in places[currentRoom]['Secret']:
-                    print(secMsgs[currentRoom][realnameHash[-2:]])
+                if realnameHash in places[currentRoom]['Secret']:
+                    print(secMsgs[currentRoom][realnameHash])
                 else: clear()
-                PowerUps.append(f"{places[currentRoom]['Secret']}s")
+                PowerUps.append(f"{currentRoom}Secret-s")
 
         ## Player Moves
 
@@ -150,8 +150,11 @@ if __name__ == "__main__":
         if len(nextMove) > 1:
             item = nextMove[1:]
             direction = nextMove[1].title()
-            item = " ".join(item).title()
-        
+            for idkanymore in range(len(item)):
+                item[idkanymore] = item[idkanymore].title()
+            
+            item2 = " ".join(item)
+            item = "".join(item)
 
         # Moving between places
         if action == "Go":
@@ -174,16 +177,18 @@ if __name__ == "__main__":
         # Picking up items
         elif action == "Get":
             try:
-                if item in places[currentRoom]["Item"]:
+                if item2 in places[currentRoom]["Item"]:
 
                     if item not in inventory:
                         
-                        if item.split() > 1: item = "".join(item.split())
+                        #if len(item.split()) > 1: item = "".join(item.split())
 
-                        inventory.append(item)
+                        inventory.append(item2)
 
 
-                        msg = f"{item} retrieved!"
+                        msg = f"{item2} retrieved!"
+
+                        item = getattr(story, item)
 
                         if item.canBeUsed:
                         
@@ -201,12 +206,12 @@ if __name__ == "__main__":
                             magic += item.Magic
 
                     else:
-                        msg = f"You already have the {item}"
+                        msg = f"You already have the {item2}"
                 
                 else:
-                    msg = f"Can't find {item}"
+                    msg = f"Can't find {item2}"
             except KeyError:
-                msg = f"Can't find {item}"
+                msg = f"Can't find {item2}"
         
         #Player Statistics and Inventory
         elif action == "Stats":
@@ -215,7 +220,7 @@ if __name__ == "__main__":
         
 
         # Gives the compass messages
-        elif action == "Use" or action == "Eat":
+        elif action == "Use" or action == "Eat" or action == "Drink":
             
             if item == "Compass":
                 with open("story.txt","r") as fi:
@@ -224,20 +229,22 @@ if __name__ == "__main__":
                             compassMsg = ln.partition(': ')[-1]
                             break
 
-            if item in inventory:
+            if item2 in inventory:
+                item3 = item
+                item = getattr(story, item)
                 if item.canBeUsed:
                     if item.msgt:
                         msg = item.msg
                     else: msg = ''
                     if item.singleUse:
-                        inventory.remove(item)
+                        inventory.remove(item2)
                         PowerUps.append(item)
                         health += item.Health
                         protection += item.Protection
                         power += item.Power
                         magic += item.Magic
-                else: msg = "You can't use that item"
-            else: msg = f"You don't have the item \"{item}\""
+                else: msg = f"You can't use the item \"{item2}\""
+            else: msg = f"You don't have the item \"{item2}\""
         
         #Displays Help message with all available functions
         elif action == "Help":
@@ -252,6 +259,7 @@ if __name__ == "__main__":
         #Reprints the current room message 
         elif action == "Look":
             TFmsgs = True
+            msg = ""
 
         #Talk with characters, NPCs or Bosses
         elif action == "Talk" or action == "Speak":
@@ -262,11 +270,11 @@ if __name__ == "__main__":
                         # Get the Dialogue form the story.txt file
                         with open("story.txt","r") as fi:
                             for ln in fi:
-                                if ln.startswith(f"NPC- {item}"):
+                                if ln.startswith(f"NPC- {item2}"):
                                     msg = ln.partition(': ')[-1]
                                     break
                     else:
-                        msg = f"{item} is no longer here"
+                        msg = f"{item2} is no longer here"
                     # Check if the player has already had a conversation with the NPC
                     if f"NPCPU{item}" not in PowerUps:
                         health += NPCmsgs['NPC'][item][0]
@@ -285,17 +293,17 @@ if __name__ == "__main__":
                     if f"NPCPU{item}" in PowerUps:
                         with open("story.txt","r") as fi:
                             for ln in fi:
-                                if ln.startswith(f"NPC- {item}-A"):
+                                if ln.startswith(f"NPC- {item2}-A"):
                                     msg = ln.partition(': ')[-1]
                                     break
                     
                     elif f"{places[currentRoom]['Boss']}bw" in PowerUps:
-                        msg = f"You have slain {item}"
+                        msg = f"You have slain {item2}"
 
                     else:
                         with open("story.txt","r") as fi:
                             for ln in fi:
-                                if ln.startswith(f"NPC- {item}"):
+                                if ln.startswith(f"NPC- {item2}"):
                                     msg = ln.partition(': ')[-1]
                                     break
                     if NPCmsgs['NPC'][item]:
@@ -304,7 +312,7 @@ if __name__ == "__main__":
                             protection += NPCmsgs['NPC'][item][1]
                             power += NPCmsgs['NPC'][item][2]
                             magic += NPCmsgs['NPC'][item][3]
-                            for itemAmount in NPCmsgs['NPC'][item][4]:
+                            for itemAmount in range(len(NPCmsgs['NPC'][item][4])):
                                 if NPCmsgs['NPC'][item][4][itemAmount] not in inventory:
                                     inventory.append(NPCmsgs['NPC'][item][4][itemAmount])
                             PowerUps.append(f"NPCPU{item}")
@@ -328,7 +336,7 @@ if __name__ == "__main__":
                             
                             doYouhavethatitem = True
                             doYouhavethatitemNum = 0
-                            for doYouhavethatitemNum in range(NPCmsgs["Bosses"][places[currentRoom]["Boss"]][0][4]):
+                            for doYouhavethatitemNum in range(len(NPCmsgs["Bosses"][places[currentRoom]["Boss"]][0][4])):
                                 if NPCmsgs["Bosses"][places[currentRoom]["Boss"]][0][4][doYouhavethatitemNum] not in inventory:
                                     doYouhavethatitem = False
                                     break
@@ -348,14 +356,14 @@ if __name__ == "__main__":
                                                     break
 
                                         PowerUps.append(f"{places[currentRoom]['Boss']}bw")
-                                        health += NPCmsgs['Bosses'][item]['Effects']["Health"]
-                                        protection += NPCmsgs['Bosses'][item]['Effects']["Protection"]
-                                        power += NPCmsgs['Bosses'][item]['Effects']["Power"]
-                                        magic += NPCmsgs['Bosses'][item]['Effects']["Magic"]
+                                        health += NPCmsgs['Bosses'][item][1][0]
+                                        protection += NPCmsgs['Bosses'][item][1][1]
+                                        power += NPCmsgs['Bosses'][item][1][2]
+                                        magic += NPCmsgs['Bosses'][item][1][3]
                                         # Add support for several dropped items
-                                        for gotThatItemNum in range(len(NPCmsgs['Bosses'][item]['Effects']['Item'])):
-                                            if NPCmsgs['Bosses'][item]['Effects']["Item"][gotThatItemNum] not in inventory:
-                                                inventory.append(NPCmsgs['Bosses'][item]['Effects']["Item"][gotThatItemNum])
+                                        for gotThatItemNum in range(len(NPCmsgs['Bosses'][item][1][4])):
+                                            if NPCmsgs['Bosses'][item][1][4][gotThatItemNum] not in inventory:
+                                                inventory.append(NPCmsgs['Bosses'][item][1][4][gotThatItemNum])
 
                                 else:
                                     with open("story.txt","r") as fi:
@@ -363,6 +371,7 @@ if __name__ == "__main__":
                                             if ln.startswith(f"Enemy- {item}-L"):
                                                 imsg = ln.partition(': ')[-1]
                                                 break
+
                                     msg = f"{imsg}\nYour stats didn\'t meet the requirements to beat this Boss"
                             else:
                                 with open("story.txt","r") as fi:
@@ -381,26 +390,29 @@ if __name__ == "__main__":
         elif action == "Drop":
             try:
                 inventory.remove(item)
-                
-                if item.canBeUsed:
-                    if item.singleUse:
-                        msg = f"{item} has been removed from your inventory, it breaks on the ground and dissapears, you can\'t get it back from where you found it."
-                    elif not item.canBeUsed:
+                if item != "":
+                    item = getattr(story, item)
+
+                    if item.canBeUsed:
+                        if item.singleUse:
+                            msg = f"{item2} has been removed from your inventory, it breaks on the ground and dissapears, you can\'t get it back from where you found it."
+                        elif not item.canBeUsed:
+                            health -= item.Health
+                            protection -= item.Protection
+                            power -= item.Power
+                            magic -= item.Magic
+                            msg = f"{item2} has been removed from your inventory, you can retrieve it back from where you found it."
+
+                    else:
                         health -= item.Health
                         protection -= item.Protection
                         power -= item.Power
                         magic -= item.Magic
-                        msg = f"{item} has been removed from your inventory, you can retrieve it back from where you found it."
-                        
-                else:
-                    health -= item.Health
-                    protection -= item.Protection
-                    power -= item.Power
-                    magic -= item.Magic
-                    msg = f"{item} has been removed from your inventory, you can retrieve it back from where you found it."
+                        msg = f"{item2} has been removed from your inventory, you can retrieve it back from where you found it."
+                else: msg = "Please input a valid item"
 
             except ValueError:
-                msg = "You dont have that item"
+                msg = f"You dont have the item \"{item2}\""
 
         
         ##Debug commands
@@ -420,8 +432,8 @@ if __name__ == "__main__":
 
         #Teleport
         elif action == "Tp":
-            if item in places:
-                currentRoom = item
+            if item2 in places:
+                currentRoom = item2
                 msg = f'You are in {currentRoom}'
             else: msg = "No such place"
 

@@ -3,11 +3,11 @@ import sys, time, os, hashlib
 
 #Stats
 health = 100
-protection = 0
-power = 0
-magic = 0
-inventory = ["", 'Special Torch']
-PowerUps = [""]
+protection = 100
+power = 100
+magic = 100
+inventory = ["", 'Special Torch', 'Coin', 'Wand']
+PowerUps = []
 
 ## Remember to add this later
 #mainHand = [""]
