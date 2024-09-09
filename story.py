@@ -40,10 +40,14 @@ NPCmsgs = {
     },
 
     'NPCS': {
-        'Asign': "",
+        'AAign': "",
     }
 }
 
+
+# List of debug (Tilde) Commands
+
+debugList = ["Where","Chngmsgs","Tp","Pu"]
 
 #Define Iems CLass
 class Items:

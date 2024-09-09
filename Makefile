@@ -1,7 +1,7 @@
-all: MonumetnalMountain.py modules.py story.py story.txt
-	python -m nuitka --follow-imports MonumetnalMountain.py
+all:
+	python -m nuitka --follow-imports MonumentalMountain.py
 
-web: MonumetnalMountain.build/
+web:
 	python -m nuitka --follow-imports MonumetnalMountain.py
 	emcc MonumetnalMountain.build
 

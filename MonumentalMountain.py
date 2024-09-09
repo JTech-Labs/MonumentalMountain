@@ -4,8 +4,8 @@ import story
 from intro import intro
 import linecache
 # This is MonumentalMountain Alpha v0.0.4
-# This "Alpha Game Program" (CC-BY-NO) was created by "Javier Fuentes-Hermoso"
-# MonumentalMountain is licensed under the GNU GPLv3 license by ?, part of the J-A-I INNOVATIONS
+# This Game Program was created by "Javier Fuentes-Hermoso"
+# MonumentalMountain is licensed under the GNU GPLv3 license by Tinfoil Hat Studios, part of the J-A-I INNOVATIONS
 
 #Define Items
 
@@ -13,18 +13,55 @@ import linecache
 def gameSetup():
     clear()
 
-
+    #Ask if the user wants the introduction
     introchoice = input("Would you like the introduction [Y/n]?:\t").title()
     if introchoice == "Y" or introchoice == "Yes": name = intro()
     else:
         name = input("You decide to refer to yourself as:\n>")
         print('\n')
 
-    timer = 0
 
+    timer = 0
+    
+    #Variable to see if the rooms message should be printed or not
     TFmsgs = not True
 
     return name, timer, TFmsgs
+
+# Setup debug commands functions
+
+# THE DEBUG COMMANDS - Work only if debugs have been enabled, which requires a secret password (the name Tilde is inspired by the key you press to bring up the Quake debug console)
+def TildeKey(action: str,currentRoom: str,TFmsgs: bool):
+
+    if "DebugEnabled" in PowerUps:
+
+        #Prints your current room
+        if action == "Where":
+            msg = currentRoom
+
+        #Changes option if you want ot see the current room message or not
+        elif action == "Chngmsgs":
+            TFmsgs = not TFmsgs
+            msg = ''
+
+        ##Change printSlow speed
+        #elif action == "Sped":
+            #sped = float(item)
+
+        #Teleport
+        elif action == "Tp":
+            if item2 in places:
+                currentRoom = item2
+                msg = f'You are in {currentRoom}'
+            else: msg = "No such place"
+
+        elif action == "Pu":
+            msg = PowerUps
+        
+    # implement else with several randomly selected messages related to the misuse of dark magic
+    else:
+        msg = "Spell Unkown"
+    return msg,currentRoom,TFmsgs
 
 #Main function
 if __name__ == "__main__":
@@ -37,6 +74,7 @@ if __name__ == "__main__":
         #Clear Screen
         clear()
         
+        #Print the message
         printSlow(f"{msg}\n\n")
 
         #Display death message if health is zero or less
@@ -414,31 +452,18 @@ if __name__ == "__main__":
             except ValueError:
                 msg = f"You dont have the item \"{item2}\""
 
-        
-        ##Debug commands
-        #Prints your current room
-        
-        elif action == "Where":
-            msg = currentRoom
+        elif action  == "Enabledebug":
+            if "DebugDeleted" not in PowerUps and "DebugEnabled" not in PowerUps:
+                realname = input("Please input the password (you have 1 try):\n>")
+                realnameHash = HashPassword(realname)
+                if realnameHash == "3435a27910d21fcb926190929fefaa20928d5052dd88adc75e153bb52d964345": PowerUps.append(f"DebugEnabled"); msg = "Dark Magic is not to be tampered with carelessly, use with extreme caution, and may the path of light always be there to guide you..."
+                else: PowerUps.append("DebugDeleted")
 
-        #Changes option if you want ot see the current room message or not
-        elif action == "Chngmsgs":
-            TFmsgs = not TFmsgs
-            msg = ''
+        elif action == "Tilde":
+            msg,currentRoom,TFmsgs = TildeKey(item,currentRoom,TFmsgs)
 
-        ##Change printSlow speed
-        #elif action == "Sped":
-            #sped = float(item)
-
-        #Teleport
-        elif action == "Tp":
-            if item2 in places:
-                currentRoom = item2
-                msg = f'You are in {currentRoom}'
-            else: msg = "No such place"
-
-        elif action == "Pu":
-            msg = PowerUps
+        elif action in debugList:
+            msg = "Spell Unkown"
 
         # Exit program
         elif action == "Exit":
