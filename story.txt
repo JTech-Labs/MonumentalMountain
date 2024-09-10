@@ -33,3 +33,4 @@ ENEMYs
 Enemy- Cocroach-W: You win!
 
 Enemy- Cocroach-L: You fight until you don't have any more energy even though the beast doesn't make a single move. The cockroach looks at you with sorrow and disappointment. You find a hill up which you can go back..
+

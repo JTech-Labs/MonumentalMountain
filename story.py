@@ -47,7 +47,7 @@ NPCmsgs = {
 
 # List of debug (Tilde) Commands
 
-debugList = ["Where","Chngmsgs","Tp","Pu"]
+debugList = ["Where","Chngmsgs","Tp","Pu","Edithealth","Chngname","Additem"]
 
 #Define Iems CLass
 class Items:

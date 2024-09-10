@@ -31,7 +31,7 @@ def gameSetup():
 # Setup debug commands functions
 
 # THE DEBUG COMMANDS - Work only if debugs have been enabled, which requires a secret password (the name Tilde is inspired by the key you press to bring up the Quake debug console)
-def TildeKey(action: str,currentRoom: str,TFmsgs: bool):
+def TildeKey(action: str,currentRoom: str,TFmsgs: bool,health: int,name: str,inventory: list):
 
     if "DebugEnabled" in PowerUps:
 
@@ -50,18 +50,29 @@ def TildeKey(action: str,currentRoom: str,TFmsgs: bool):
 
         #Teleport
         elif action == "Tp":
+            item2 = input("Input teleport target:\n>")
             if item2 in places:
+                currentRoom2 = currentRoom
                 currentRoom = item2
-                msg = f'You are in {currentRoom}'
+                msg = f'You you teleported from {currentRoom2} to {currentRoom}'
             else: msg = "No such place"
 
         elif action == "Pu":
             msg = PowerUps
         
+        elif action == "Edithealth":
+            health = int(input("Input new health amount:\n>"))
+        
+        elif action == "Chngname":
+            name = input("Input new name:\n>")
+
+        elif action == "Additem":
+            inventory.append(input("Input item code:\n>"))
+
     # implement else with several randomly selected messages related to the misuse of dark magic
     else:
         msg = "Spell Unkown"
-    return msg,currentRoom,TFmsgs
+    return msg,currentRoom,TFmsgs,health,name,inventory
 
 #Main function
 if __name__ == "__main__":
@@ -460,10 +471,11 @@ if __name__ == "__main__":
                 else: PowerUps.append("DebugDeleted")
 
         elif action == "Tilde":
-            msg,currentRoom,TFmsgs = TildeKey(item,currentRoom,TFmsgs)
+            msg,currentRoom,TFmsgs,health,name,inventory = TildeKey(item,currentRoom,TFmsgs,health,name,inventory)
 
         elif action in debugList:
-            msg = "Spell Unkown"
+            if "DebugDeleted" not in PowerUps and "DebugEnabled" not in PowerUps:
+                msg = "Spell Unkown"
 
         # Exit program
         elif action == "Exit":
