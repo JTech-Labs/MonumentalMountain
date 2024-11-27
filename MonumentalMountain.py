@@ -82,6 +82,7 @@ if __name__ == "__main__":
     while True:
         
         ## Start Turn
+        
         #Clear Screen
         clear()
         

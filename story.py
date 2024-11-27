@@ -60,6 +60,10 @@ class Items:
         self.singleUse = SingleUse
         self.msgt = msgt
         self.msg = msg
+    
+    def printTip(self):
+        if msgt:
+            return msg
 
 #Define Item Objects
 
@@ -71,11 +75,13 @@ with open("story.txt","r") as fi:
             break
 
 #Items
-Compass = Items([0,0,0,0],True,False,True,compassMsg)
-Coin = Items([2,2,0,1],False,False,False,"")
-Sand = Items([-10,5,-10,0],False,False,False,"")
-BreadLoaf = Items([5,0,2,0],True,True,True,"Your health has increased by 5 and your power has increased by 2")
-WhackyPotion = Items([randint(-11,11),randint(-5,5),randint(-5,5),randint(-5,5)],True,True,True,"Random effects are upon you!")
-Wand = Items([50,50,90,30],False,False,False,"")
-SpecialTorch = Items([0,0,0,0],False,False,False,"")
-RedPotion = ([20,0,7,0],True,True,True,"Your health has increased by 20 and your power has increased by 7")
+theItems = {
+    "Compass": Items([0,0,0,0],True,False,True,compassMsg),
+    "Coin": Items([2,2,0,1],False,False,False,""),
+    "Sand": Items([-10,5,-10,0],False,False,False,""),
+    "BreadLoaf": Items([5,0,2,0],True,True,True,"Your health has increased by 5 and your power has increased by 2"),
+    "WhackyPotion": Items([randint(-11,11),randint(-5,5),randint(-5,5),randint(-5,5)],True,True,True,"Random effects are upon you!"),
+    "Wand": Items([50,50,90,30],False,False,False,""),
+    "SpecialTorch": Items([0,0,0,0],False,False,False,""),
+    "RedPotion": ([20,0,7,0],True,True,True,"Your health has increased by 20 and your power has increased by 7"),
+}
