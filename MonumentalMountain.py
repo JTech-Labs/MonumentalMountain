@@ -245,15 +245,15 @@ if __name__ == "__main__":
                             if item.singleUse:
                                 PowerUps.append(f"{currentRoom}-{nearbyItem}")
                             elif not item.singleUse:
-                                health += item.Health
-                                protection += item.Protection
-                                power += item.Power
-                                magic += item.Magic
+                                health += item.health
+                                protection += item.protection
+                                power += item.power
+                                magic += item.magic
                         else:
-                            health += item.Health
-                            protection += item.Protection
-                            power += item.Power
-                            magic += item.Magic
+                            health += item.health
+                            protection += item.protection
+                            power += item.power
+                            magic += item.magic
 
                     else:
                         msg = f"You already have the {item2}"
@@ -283,16 +283,14 @@ if __name__ == "__main__":
                 item3 = item
                 item = getattr(story, item)
                 if item.canBeUsed:
-                    if item.msgt:
-                        msg = item.msg
-                    else: msg = ''
+                    item.tip()
                     if item.singleUse:
                         inventory.remove(item2)
                         PowerUps.append(item)
-                        health += item.Health
-                        protection += item.Protection
-                        power += item.Power
-                        magic += item.Magic
+                        health += item.health
+                        protection += item.protection
+                        power += item.power
+                        magic += item.magic
                 else: msg = f"You can't use the item \"{item2}\""
             else: msg = f"You don't have the item \"{item2}\""
         
@@ -447,17 +445,17 @@ if __name__ == "__main__":
                         if item.singleUse:
                             msg = f"{item2} has been removed from your inventory, it breaks on the ground and dissapears, you can\'t get it back from where you found it."
                         elif not item.canBeUsed:
-                            health -= item.Health
-                            protection -= item.Protection
-                            power -= item.Power
-                            magic -= item.Magic
+                            health -= item.health
+                            protection -= item.protection
+                            power -= item.power
+                            magic -= item.magic
                             msg = f"{item2} has been removed from your inventory, you can retrieve it back from where you found it."
 
                     else:
-                        health -= item.Health
-                        protection -= item.Protection
-                        power -= item.Power
-                        magic -= item.Magic
+                        health -= item.health
+                        protection -= item.protection
+                        power -= item.power
+                        magic -= item.magic
                         msg = f"{item2} has been removed from your inventory, you can retrieve it back from where you found it."
                 else: msg = "Please input a valid item"
 

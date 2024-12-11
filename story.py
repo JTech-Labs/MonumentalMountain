@@ -1,87 +1,36 @@
-from random import randint
+PLACE MESSAGES
 
-currentRoom = "Superliminal Space"
+Superliminal Space: You look forwards, at the crossroads, a slightly superliminal place. A path directly ahead of you leads to a giant grey, snow-capped mountain shrouded by clouds which half hides the bright sun. To the right there is a path leading to a green and life-filled forest. The treetops are shrouded by storm clouds and a dark atmosphere emanates from it. The left path leads to a barren and arid desert with a few littered canyons and scorching heat that can be felt even from here.
 
-places = {
-    'Superliminal Space': {'Forwards': 'Mountain Base', 'Right': 'Forrest Start', 'Left': 'Desert Start', 'Down': 'Tilled Land', 'msgs': 3, 'Item': ['Bread Loaf']},
-    'Mountain Base': {'Backwards': 'Superliminal Space', 'Item': ['Whacky Potion'], 'msgs': 7},
-    'Forrest Start': {'Backwards': 'Superliminal Space', 'Item': ['Wand'], 'msgs': 5},
-    'Desert Start': {'Forwards': 'Desert Canyon', 'Right': 'Desert Shadow', 'Left': 'Desert Rocks', 'Backwards': 'Superliminal Space', 'Item': ['Bread Loaf']},
-    'Tilled Land': {'Item': ['Compass']},
-    'Desert Shadow': {'Backwards': 'Desert Start', 'Item': ['Coin']},
-    'Desert Rocks': {'Secret': [
-    "a0ead0b63e9ddc749106e77da630106b5be5d9a5c0be43e96098325f7ba9377d",
-    "b743d651ac4a114940c1d141929b9ee08ad3c5cdc38e1d299bd307e4811639ae",
-    "171886bac78f91b959d78a8679bffb1f94e23b82066f7a15f88e7b24b5ca9739"], 'Backwards': 'Desert Start', "Item": [""]},
-    'Desert Canyon': {'Boss': 'Cocroach', 'Backwards': 'Desert Start', 'Item': ['Sand'], 'Forwards': 'Further Desert Canyon'},
-    'Further Desert Canyon': {'Backwards': 'Desert Canyon', 'Req': 'Special Torch'}
-}
+Forrest Start: You decide that this is the best option for food and that it will be easier to survive.
 
-secMsgs = {
-    'Desert Rocks': {
-        'b743d651ac4a114940c1d141929b9ee08ad3c5cdc38e1d299bd307e4811639ae': 'Welcome J-A-I',
-        'a0ead0b63e9ddc749106e77da630106b5be5d9a5c0be43e96098325f7ba9377d': u'\u2665',
-        '171886bac78f91b959d78a8679bffb1f94e23b82066f7a15f88e7b24b5ca9739': "The engravings start to violently glow as the inside of the arched shape starts to open up. \
-after a few seconds, the glowing stops and in the place of the clowing arch, there is a steep and narrow staircase that leads downwards. \
-As you start going down you feel something pulling you forwards that gets stronger and stronger as you decend. \
-Suddenly a flash of light engulfs you and you feel as if you where thrown at the speed of light forwards \
-and you don't have any way of stopping it. \nIt all goes white."
-    }
-}
+Mountain Base: You are filled with a burning curiosity and decide to make headway for the mountain.
 
-NPCmsgs = {
-    
-    'NPC': {
-        'Aname': [0,0,0,0,[''],True],
-        'Cocroach': [0,0,0,0,['Special Torch'],False],
-    },
-    'Bosses': {
-        'Cocroach': [[100,40,80,20,['Coin','Wand']],[-99,-30,-70,0,['Torch', 'Red Potion']]],
-    },
+Desert Start: Even though you might not find water there you think it is the best option for refuge. You slowly stroll forwards, brushing the sand with your feet as the sun scorches the back of your neck. You see a set of large rocks to the left that look like could be good for refuge and might be a bit humid. You can also see a small shadow far off to the right and think it could be an oasis. Or you could carry on forwards just incase you find anything better.
 
-    'NPCS': {
-        'AAign': "",
-    }
-}
+Desert Shadow: After some walking, you find a palm tree with an "X" carved into it, as this had always meant treasure in your world, you dig a few centimeters and find a small coin, when you go to touch it, a surge of power ruches through you as you feel an increase of energy traveling through you body. Now you can only go backwards.
 
+Desert Rocks: "You find a few boulders grouped seemingly randomly around a larger center boulder where a line of text written in the same language as on your cuff bracelet an ark
 
-# List of debug (Tilde) Commands
+Desert Canyon: You slowly go down to the canyon to see what's there. As you preceed, you see the great expanse of the land, with the yellow sand that expands to the horizon.
 
-debugList = ["Where","Chngmsgs","Tp","Pu","Edithealth","Chngname","Additem"]
+Tilled Land: You decided that you don't want to go in the traditional directions presented to you, and you decide to start digging downwards. You appear into a secret network of tunnels underneath the map that no oe knew existed.
 
-#Define Iems CLass
-class Items:
-    def __init__(self, Buffs: list, canBeUsed: bool, SingleUse: bool, msgt: bool, msg: str):
-        self.Health = Buffs[0]
-        self.Protection = Buffs[1]
-        self.Power = Buffs[2]
-        self.Magic = Buffs[3]
-        self.canBeUsed = canBeUsed
-        self.singleUse = SingleUse
-        self.msgt = msgt
-        self.msg = msg
-    
-    def printTip(self):
-        if msgt:
-            return msg
+COMPASS
 
-#Define Item Objects
+C- Superliminal Space: This is a superliminal place. Superliminal is a term used in psychology and physiology to describe mental activity that is above the threshold of the subconscious. It is the opposite of subliminal, which refers to mental activity that is below the threshold of conscious awareness. The term supraliminal is also used to describe mental activity that is above the threshold of consciousness.
 
-#Compass messages
-with open("story.txt","r") as fi:
-    for ln in fi:
-        if ln.startswith(f"C- {currentRoom}"):
-            compassMsg = ln.partition(': ')[-1]
-            break
+NPCs
 
-#Items
-theItems = {
-    "Compass": Items([0,0,0,0],True,False,True,compassMsg),
-    "Coin": Items([2,2,0,1],False,False,False,""),
-    "Sand": Items([-10,5,-10,0],False,False,False,""),
-    "BreadLoaf": Items([5,0,2,0],True,True,True,"Your health has increased by 5 and your power has increased by 2"),
-    "WhackyPotion": Items([randint(-11,11),randint(-5,5),randint(-5,5),randint(-5,5)],True,True,True,"Random effects are upon you!"),
-    "Wand": Items([50,50,90,30],False,False,False,""),
-    "SpecialTorch": Items([0,0,0,0],False,False,False,""),
-    "RedPotion": ([20,0,7,0],True,True,True,"Your health has increased by 20 and your power has increased by 7"),
-}
+NPC- Aname: Hello, I am a Non-Playable Character!
+
+NPC- Cocroach: Even though you find this unknown animal very frightening, you decide to gently hush in order to calm it down. The cockroach looks at you with confusion. To your surprise it responds and says 'What are you doing? I am the guardian of the Isoriac dessert. My unlucky body normally frightens most people but I'm actually very friendly!' You discover that its name in Inorilarn, the long forgoten language of this land, and that it has been here since the first ray of light dried the sandy place. He hasn't talked to anyone in a lot of time as most adventurers are too terrified. The Cocroach gifts you a few presents, thanking you from seeing th beauty in him, and dissapears to protect another land...
+
+NPC- Cocroach-A: The Cocroach isn't here anymore
+
+ENEMYs
+
+Enemy- Cocroach-W: You win!
+
+Enemy- Cocroach-L: You fight until you don't have any more energy even though the beast doesn't make a single move. The cockroach looks at you with sorrow and disappointment. You find a hill up which you can go back..
+
