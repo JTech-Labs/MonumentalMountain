@@ -1,5 +1,5 @@
 from modules import *
-from story import *
+from objects import *
 import story
 from intro import intro
 import linecache
