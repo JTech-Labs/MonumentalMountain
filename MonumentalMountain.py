@@ -238,7 +238,7 @@ if __name__ == "__main__":
 
                         msg = f"{item2} retrieved!"
 
-                        item = getattr(story, item)
+                        item = theItems[f"{item}"]
 
                         if item.canBeUsed:
                         
@@ -273,15 +273,11 @@ if __name__ == "__main__":
         elif action == "Use" or action == "Eat" or action == "Drink":
             
             if item == "Compass":
-                with open("story.txt","r") as fi:
-                    for ln in fi:
-                        if ln.startswith(f"C- {currentRoom}"):
-                            compassMsg = ln.partition(': ')[-1]
-                            break
+                compassMsg = story["Compass"][currentRoom]
 
             if item2 in inventory:
                 item3 = item
-                item = getattr(story, item)
+                item = theItems[f"{item}"]
                 if item.canBeUsed:
                     item.tip()
                     if item.singleUse:
