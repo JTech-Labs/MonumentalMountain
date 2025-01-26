@@ -312,11 +312,7 @@ if __name__ == "__main__":
                     #Check if the player can continuously speak with an NPC
                     if not f"NPCPU{item}" in PowerUps: # Remember to apply """ NPCmsgs['NPC'][item][5] """ for multiple different dialouges
                         # Get the Dialogue form the story.txt file
-                        with open("story.txt","r") as fi:
-                            for ln in fi:
-                                if ln.startswith(f"NPC- {item2}"):
-                                    msg = ln.partition(': ')[-1]
-                                    break
+                        msg = story["NPCs"][f"{item}"]
                     else:
                         msg = f"{item2} is no longer here"
                     # Check if the player has already had a conversation with the NPC
@@ -335,21 +331,13 @@ if __name__ == "__main__":
             elif 'Boss' in places[currentRoom]:
                 if item == places[currentRoom]['Boss']:
                     if f"NPCPU{item}" in PowerUps:
-                        with open("story.txt","r") as fi:
-                            for ln in fi:
-                                if ln.startswith(f"NPC- {item2}-A"):
-                                    msg = ln.partition(': ')[-1]
-                                    break
+                        msg = story["NPCs"][f"{item2}-A"]
                     
                     elif f"{places[currentRoom]['Boss']}bw" in PowerUps:
                         msg = f"You have slain {item2}"
 
                     else:
-                        with open("story.txt","r") as fi:
-                            for ln in fi:
-                                if ln.startswith(f"NPC- {item2}"):
-                                    msg = ln.partition(': ')[-1]
-                                    break
+                        msg = story["NPCs"][f"{item2}"]
                     if NPCmsgs['NPC'][item]:
                         if f"NPCPU{item}" not in PowerUps and f"{places[currentRoom]['Boss']}bw" not in PowerUps:
                             health += NPCmsgs['NPC'][item][0]
@@ -367,7 +355,7 @@ if __name__ == "__main__":
         elif action == "Read":
             if 'NPCS' in places[currentRoom].keys():
                 if item == places[currentRoom]['NPCS']:
-                    msg = NPCmsgs['NPCS'][item]['Tex']
+                    msg = story['NPCs'][f"item"]
                 else: msg = f"Can't find the sign \"{item}\" here."
             else: print("There are no signs here.")
 
@@ -410,19 +398,12 @@ if __name__ == "__main__":
                                                 inventory.append(NPCmsgs['Bosses'][item][1][4][gotThatItemNum])
 
                                 else:
-                                    with open("story.txt","r") as fi:
-                                        for ln in fi:
-                                            if ln.startswith(f"Enemy- {item}-L"):
-                                                imsg = ln.partition(': ')[-1]
-                                                break
+                                    story["Enemies"][f"{item}-L"]
 
                                     msg = f"{imsg}\nYour stats didn\'t meet the requirements to beat this Boss"
                             else:
-                                with open("story.txt","r") as fi:
-                                    for ln in fi:
-                                        if ln.startswith(f"Enemy- {item}-L"):
-                                            imsg = ln.partition(': ')[-1]
-                                            break
+                                story["Enemies"][f"{item}-L"]
+                                
                                 msg = f"{imsg}\nYour stats didn\'t meet the requirements to beat this Boss"
 
                         else: msg = "You have already fought this boss and they have despawned."
