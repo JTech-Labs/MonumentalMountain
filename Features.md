@@ -37,11 +37,13 @@ Command Parrameter (parrameters are shown in brackets [], but you don't write th
 - Whatis [item]  -> Gets the description of an item in your inventory
 
 And you can always "Exit"
+
 ### Debug
 - Chngmsgs -> Toggles there being a message for each room you are in, useful if you want to quickly move around
 - Where -> Displays the current room you are in
 
 (Plus a few secret commands! Although you could just find them in the source code :D)
+
 ---
 ## Items
 These are the things that are added to your inventory, they can give you buffs (Power Ups) and have special uses.
