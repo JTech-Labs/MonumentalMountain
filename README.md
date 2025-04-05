@@ -9,7 +9,7 @@ This is a simply written "choose your own story" style RPG text adventure game m
 
 ## Writing and licensing
 
-This program is written by high schoolers in our spare time so please be respectful if updates take some time to be released. The Python files are compiled into executables with [Nuitka](https://nuitka.net) using the respective OS. All the code is licensed under GNU GPL v3.0.
+This program is written by amateurs in our spare time so please be respectful if updates take some time to be released. The Python files are compiled into executables with [Nuitka](https://nuitka.net) using the respective OS. All the code is licensed under the [MIT License](LICENCES/MIT.txt) and is [REUSE](https://reuse.software) 3.3 compliant
 
 ## Releases
 
