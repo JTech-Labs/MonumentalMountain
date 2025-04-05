@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: (C) 2023-2025 jtech-labs <~jtech-labs/public@lists.sr.ht>
+#
+# SPDX-License-Identifier: MIT
+
 from modules import *
 from objects import *
 import story

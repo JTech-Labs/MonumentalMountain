@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: (C) 2023-2025 jtech-labs <~jtech-labs/public@lists.sr.ht>
+# SPDX-FileCopyrightText: 2023-2025 jtech-labs <~jtech-labs/public@lists.sr.ht>
+# SPDX-FileCopyrightText: 2025 jtech-labs <~jtech-labs/public@lists.sr.ht>
+#
+# SPDX-License-Identifier: MIT
+
 import sys, time, random, os, webbrowser
 from modules import PlayerStatus, stop_all, print_slow, sh1, fight1_2
 

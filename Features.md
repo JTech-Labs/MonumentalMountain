@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: (C) 2023-2025 jtech-labs <~jtech-labs/public@lists.sr.ht>
+
+SPDX-License-Identifier: MIT
+-->
+
 # Intro
 This file is for reference purposes only and is used to document all the Features, Bosses, NPCs, Items and the basic system of the main game
 

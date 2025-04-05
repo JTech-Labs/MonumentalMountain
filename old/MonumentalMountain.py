@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: (C) 2023-2025 jtech-labs <~jtech-labs/public@lists.sr.ht>
+# SPDX-FileCopyrightText: 2023-2025 jtech-labs <~jtech-labs/public@lists.sr.ht>
+# SPDX-FileCopyrightText: 2025 jtech-labs <~jtech-labs/public@lists.sr.ht>
+#
+# SPDX-License-Identifier: MIT
+
 from modules import *
 from intro import intro
 # This is MonumentalMountain Alpha v0.0.2
