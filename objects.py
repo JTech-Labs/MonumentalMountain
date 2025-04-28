@@ -71,15 +71,10 @@ class Items:
 #Define Item Objects
 
 #Compass messages
-with open("story.txt","r") as fi:
-    for ln in fi:
-        if ln.startswith(f"C- {currentRoom}"):
-            compassMsg = ln.partition(': ')[-1]
-            break
 
 #Items
 theItems = {
-    "Compass": Items([0,0,0,0],True,False,True,compassMsg),
+    # "Compass": Items([0,0,0,0],True,False,True,compassMsg),
     "Coin": Items([2,2,0,1],False,False,False,""),
     "Sand": Items([-10,5,-10,0],False,False,False,""),
     "BreadLoaf": Items([5,0,2,0],True,True,True,"Your health has increased by 5 and your power has increased by 2"),

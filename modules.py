@@ -3,7 +3,8 @@
 # SPDX-License-Identifier: MIT
 
 #Improts
-import sys, time, os, hashlib
+import sys, time, os, hashlib, json
+from os.path import isfile
 
 #Stats
 health = 100
@@ -42,6 +43,42 @@ def HashPassword(password):
     
     return passwordHash
 
+def getStory():
+    got = False
+
+    while not got:
+        printSlow("Please input your prefered language as a ISO 639 language code (e.g. `en`, `es` or `eo`)")
+        lang = input("\n>")
+        
+        for i in range(len(lang)):
+            if lang[i] not in alphabet:
+                print("Language code must have only letters in the English alphabet, try again")
+                continue
+
+        if len(lang) > 2 or len(lang) < 2:
+            print("Language code must be exactly two characters long, try again")
+        
+        if not isfile(f"story/{lang}.json"):
+            print("That language is currently not implemented, you can try another or contribute if you want!")
+
+        else:
+            got = True
+
+    with open(f'story/{lang}.json') as f:
+        lang = json.load(f)
+    
+    if lang["test"]:
+       print(lang["name"])
+    else:
+        print("ERROR!!:  Couldn't load language for an unexpected reason!\n\t\t\t\tPlease try again")
+    
+    story = json.load(lang["STORY"])
+    ui = json.load(lang["UI"])
+
+    return story, ui
+        
+
 vowels = ['a', 'e', 'i', 'o', 'u']
+alphabet = "abcdefghijklmnopqrstuvwxyz"
 
 msg = ""

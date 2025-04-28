@@ -4,12 +4,14 @@
 
 from modules import *
 from objects import *
-import story
 from intro import intro
 import linecache
 # This is MonumentalMountain Alpha v0.0.4
 # This Game Program was created by "Javier Fuentes-Hermoso"
 # MonumentalMountain is licensed under the GNU GPLv3 license by Tinfoil Hat Studios, part of the J-A-I INNOVATIONS
+
+# Get prefered language
+story, ui = getStory()
 
 #Define Items
 
@@ -30,7 +32,7 @@ def gameSetup():
     #Variable to see if the rooms message should be printed or not
     TFmsgs = not True
 
-    return name, timer, TFmsgs
+    return name, timer, TFmsgs, story
 
 # Setup debug commands functions
 
