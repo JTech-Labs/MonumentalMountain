@@ -21,7 +21,7 @@ and just download run the executable for your respective OS. Alpha releases will
 Beta releases will be codenamed `"Small Stone"`, and Stable releases will have their own codename.
 
 ___Releases, updates and other changes or news will be recorded on the
-[`~jtech-labs/monumentalmountain-announce@lists.sr.ht](https://lists.sr.ht/~jtech-labs/monumentalmountain-announce) mailing list.___
+[`~jtech-labs/monumentalmountain-announce@lists.sr.ht`](https://lists.sr.ht/~jtech-labs/monumentalmountain-announce) mailing list.___
 
 From v0.0.2 the way the code worked and was organised got remade which will help boost development speed.
 The v0.0.2Alpha-r is the same as previous just replaced with the new code format.
