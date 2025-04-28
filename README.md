@@ -45,8 +45,8 @@ We kindly ask you too read [the man page](https://man.sr.ht/lists.sr.ht/) and
 the [mailing list etiquette](https://man.sr.ht/lists.sr.ht/etiquette.md) on the
 [sr.ht](https://sr.ht) website.
 
-### All contributors are required to "sign-off" their commits (using git commit
--s) to indicate that they have agreed to the [Developer Certificate of
+### All contributors are required to "sign-off" their commits
+(using git commit -s) to indicate that they have agreed to the [Developer Certificate of
 Origin](https://developercertificate.org/), reproduced below:
 
 ```
