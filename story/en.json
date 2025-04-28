@@ -3,6 +3,56 @@
     "name": "Loaded language: English",
     
     "UI": {
+        "YesNo": {
+            "Yes": "Yes",
+            "Y": "Y"
+        },
+
+        "warnings": {
+            "Intro?": "Would you like the introduction [Y/n]?:\t",
+            "Name?": "You decide to refer to yourself as:\n>",
+            "Die": "Your health is 0 or less. You died.\n\nThanks for playing. You can always replay if you want, but your progress will not have been saved.",
+            "Hp3": "Your health is a bit low, you might want to heal by using a food or drink.\n",
+            "Hp2": "Your health is quite low, you might want to heal by using a food or drink.\n",
+            "Hp1": "Your health is very low, it is recomended that you heal as quick as possible.\n"
+        },
+          
+        "commands": {
+            "Go": "Go",
+            "Get": "Get",
+            "Stats": "Stats",
+            "Use": "Use",
+            "Eat": "Eat",
+            "Drink": "Drink",
+            "Help": "Help",
+            "Look": "Look",
+            "Talk": "Talk",
+            "Speak": "Speak",
+            "Read": "Read",
+            "Fight": "Fight",
+            "Drop": "Drop",
+            "Tilde": "Tilde",
+            "Exit": "Exit",
+            "Tilde": {
+                "Where": "Where",
+                "Chngmsgs": "Chngmsgs",
+                "Tp": "Tp",
+                "Pu": "Pu",
+                "Edithealth": "Edithealth",
+                "Chngname": "Chngname",
+                "Additem": "Additem"
+            }
+        },
+
+        "directions": {
+            "Forwards": "Forwards",
+            "Right": "Right",
+            "Left": "Left",
+            "Backwards": "Backwards",
+            "Up": "Up",
+            "Down": "Down"
+        },
+
         "items": {
             "Coin": "Coin",
             "Sand": "Sand",

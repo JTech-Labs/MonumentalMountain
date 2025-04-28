@@ -20,10 +20,10 @@ def gameSetup():
     clear()
 
     #Ask if the user wants the introduction
-    introchoice = input("Would you like the introduction [Y/n]?:\t").title()
+    introchoice = input(ui["warnings"]["Intro?"]).title()
     if introchoice == "Y" or introchoice == "Yes": name = intro()
     else:
-        name = input("You decide to refer to yourself as:\n>")
+        name = input(ui["warnings"]["Name?"])
         print('\n')
 
 
@@ -42,11 +42,11 @@ def TildeKey(action: str,currentRoom: str,TFmsgs: bool,health: int,name: str,inv
     if "DebugEnabled" in PowerUps:
 
         #Prints your current room
-        if action == "Where":
+        if action == ui["commands"]["Tilde"]["Where"]:
             msg = currentRoom
 
         #Changes option if you want ot see the current room message or not
-        elif action == "Chngmsgs":
+        elif action == ui["commands"]["Tilde"]["Chngmsgs"]:
             TFmsgs = not TFmsgs
             msg = ''
 
@@ -120,11 +120,7 @@ if __name__ == "__main__":
         #Print Room message unless option is turned off
         if TFmsgs:
             
-            with open("story.txt","r") as fi:
-                for ln in fi:
-                    if ln.startswith(currentRoom):
-                        printSlow(ln.partition(': ')[-1])
-                        break
+            printSlow(story["places"][currentRoom])
 
             print('\n'*2)
         
