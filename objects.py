@@ -7,10 +7,10 @@ from random import randint
 currentRoom = "Superliminal Space"
 
 places = {
-    'Superliminal Space': {'Forwards': 'Mountain Base', 'Right': 'Forrest Start', 'Left': 'Desert Start', 'Down': 'Tilled Land', 'msgs': 3, 'Item': ['Bread Loaf']},
-    'Mountain Base': {'Backwards': 'Superliminal Space', 'Item': ['Whacky Potion'], 'msgs': 7},
+    'Superliminal Space': {'Forwards': 'Mountain Base', 'Right': 'Forrest Start', 'Left': 'Desert Start', 'Down': 'Tilled Land', 'msgs': 3, 'Item': ['BreadLoaf']},
+    'Mountain Base': {'Backwards': 'Superliminal Space', 'Item': ['WhackyPotion'], 'msgs': 7},
     'Forrest Start': {'Backwards': 'Superliminal Space', 'Item': ['Wand'], 'msgs': 5},
-    'Desert Start': {'Forwards': 'Desert Canyon', 'Right': 'Desert Shadow', 'Left': 'Desert Rocks', 'Backwards': 'Superliminal Space', 'Item': ['Bread Loaf']},
+    'Desert Start': {'Forwards': 'Desert Canyon', 'Right': 'Desert Shadow', 'Left': 'Desert Rocks', 'Backwards': 'Superliminal Space', 'Item': ['BreadLoaf']},
     'Tilled Land': {'Item': ['Compass']},
     'Desert Shadow': {'Backwards': 'Desert Start', 'Item': ['Coin']},
     'Desert Rocks': {'Secret': [
@@ -18,7 +18,7 @@ places = {
     "b743d651ac4a114940c1d141929b9ee08ad3c5cdc38e1d299bd307e4811639ae",
     "171886bac78f91b959d78a8679bffb1f94e23b82066f7a15f88e7b24b5ca9739"], 'Backwards': 'Desert Start', "Item": [""]},
     'Desert Canyon': {'Boss': 'Cocroach', 'Backwards': 'Desert Start', 'Item': ['Sand'], 'Forwards': 'Further Desert Canyon'},
-    'Further Desert Canyon': {'Backwards': 'Desert Canyon', 'Req': 'Special Torch'}
+    'Further Desert Canyon': {'Backwards': 'Desert Canyon', 'Req': 'SpecialTorch'}
 }
 
 secMsgs = {

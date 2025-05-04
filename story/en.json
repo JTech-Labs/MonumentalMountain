@@ -1,7 +1,33 @@
 {
     "test": true,
     "name": "Loaded language: English",
-    
+   
+    "INTRO": [
+        "Welcome to MonumentalMountain Alpha v0.03 created by ~jtech-labs",
+        "Legends have been told about the Mysterious Monumental Mountain, a realm accessible only while in a certain mental state that must me reached through sleep.",
+        "A place created at the dawn of humankind by the Supreme Planetary Council of Intelligence to test all humans until they are advanced enough as a species to join the Supreme Council",
+        "You, a simple human who has only read about this mysterious real in medieval history books, go to bed in peace without the knowledge that at exactly midnight of the summer equinox of 2025, everyone ond the dark and light side of the Earth unconsciously decide to sleep all at the same time.",
+        "Only the human who is most consciously unprepared but subconsciously ready would be chosen to go and stand fo their species.",
+        "And that one specific person, at this one specific moment happens to be...\n",
+        "You",
+        
+        "Welcome to the Monumental Mountain. We will lead you though the terrain, but you must make the vital decisions as you progress. If you ever need help, type in `Help`\n",
+        "!!WARNING!!, THIS GAME IS INPIRED BY COLOSSAL CAVE ADVENTURE, AND AS SO, YOUR PROGRESS WILL **NOT** BE SAVED, YOU HAVE BEEN WARNED",
+        "The available prompts will be directions (e.g. forewards, back, right, left) and several more, if you need help, just type in `Help`.",
+        "Are you ready, <yes> or <no>?:\n>",
+
+        ["yes", "YES", "y", "no", "no", "n"],
+
+        ["Starting . . . . . . . . . . . . . . . . . . .",
+         "You have decided that you are not yet ready for this. The council will chose someone else to replace you. Remember though, you can always come back whenever you wish..."],
+         
+         "You're lost and scared, out of control. You are trapped in a nightmare where you can't stop falling. Incomprehensible lights, colors and emotions fly past you at impossible speeds while reality and imagination merge into a flash of white that overwhelms you as you collide with the ground.",
+         "You don't remember anything, not even your name or age. All you know is that you are at the edge of a crossroads and that something is forcing you to move forwards",
+         "After some consideration, you decide to refer to yourself as:\n>",
+         ["Now, ", ", the first thing you do is notice a cuff bracelet made from gold and copper with incrusted gems that contains a lot of wierd and fascinating engraved text in some kind of foreign language not known to you or your kind."],
+         "You discover that it cannot be taken off and decide not to worry about it too much and focus on wht is directly in front of you.\n"
+    ],
+
     "UI": {
         "YesNo": {
             "Yes": "Yes",
@@ -19,6 +45,7 @@
           
         "commands": {
             "Go": "Go",
+            "Move": "Move",
             "Get": "Get",
             "Stats": "Stats",
             "Use": "Use",
@@ -54,12 +81,12 @@
         },
 
         "items": {
-            "Coin": "Coin",
-            "Sand": "Sand",
-            "BreadLoaf": "BreadLoaf",
-            "WhackyPotion": "WhackyPotion",
-            "Wand": "Wand",
-            "SpecialTorch": "SpecialTorch"
+            "Coin": ["Coin", "You see a coin"],
+            "Sand": ["Sand", "You see some sand"],
+            "BreadLoaf": ["BreadLoaf", "You see a Bread Loaf"],
+            "WhackyPotion": ["WhackyPotion", "You see a whacky potion"],
+            "Wand": ["Wand", "You see a wand"],
+            "SpecialTorch": ["SpecialTorch", "You see a Torch"]
         }
     },
 

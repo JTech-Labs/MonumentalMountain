@@ -10,18 +10,15 @@ import linecache
 # This Game Program was created by "Javier Fuentes-Hermoso"
 # MonumentalMountain is licensed under the GNU GPLv3 license by Tinfoil Hat Studios, part of the J-A-I INNOVATIONS
 
-# Get prefered language
-story, ui = getStory()
-
 #Define Items
 
 #Setup the game and intro
-def gameSetup():
+def gameSetup(introText):
     clear()
 
     #Ask if the user wants the introduction
     introchoice = input(ui["warnings"]["Intro?"]).title()
-    if introchoice == "Y" or introchoice == "Yes": name = intro()
+    if introchoice == "Y" or introchoice == "Yes": name = intro(introText)
     else:
         name = input(ui["warnings"]["Name?"])
         print('\n')
@@ -32,7 +29,7 @@ def gameSetup():
     #Variable to see if the rooms message should be printed or not
     TFmsgs = not True
 
-    return name, timer, TFmsgs, story
+    return name, timer, TFmsgs
 
 # Setup debug commands functions
 
@@ -82,8 +79,15 @@ def TildeKey(action: str,currentRoom: str,TFmsgs: bool,health: int,name: str,inv
 
 #Main function
 if __name__ == "__main__":
+    
+    # Get prefered language
+    story, ui, introText = getStory()
+    allItems = ui["items"]
+    commands = ui["commands"]
+
     #Run Game Setup and initiate variables
-    name,timer,TFmsgs = gameSetup()
+    name,timer,TFmsgs = gameSetup(introText) 
+
     #Main game loop
     while True:
         
@@ -147,15 +151,7 @@ if __name__ == "__main__":
                         nearbyItem = places[currentRoom]["Item"][theItemsInTheRoom]
 
                         if nearbyItem not in inventory and f"{currentRoom}-{nearbyItem}" not in PowerUps:
-
-                            if nearbyItem[-1] == 's' or nearbyItem == "Sand":
-                                printSlow(f"You see {nearbyItem}")
-
-                            elif nearbyItem[0] in vowels:
-                                printSlow(f"You see an {nearbyItem}")
-
-                            else:
-                                printSlow(f"You see a {nearbyItem}")
+                            printSlow(allItems[nearbyItem][1])
                             print('\n')
                     else: break
         else: continue
@@ -209,7 +205,7 @@ if __name__ == "__main__":
             item = "".join(item)
 
         # Moving between places
-        if action == "Go":
+        if action == commands["Go"] or action == commands["Move"]:
             if direction == "Back":
                 direction = "Backwards"
             try:

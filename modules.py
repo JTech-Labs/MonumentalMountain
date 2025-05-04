@@ -47,7 +47,7 @@ def getStory():
     got = False
 
     while not got:
-        printSlow("Please input your prefered language as a ISO 639 language code (e.g. `en`, `es` or `eo`)")
+        print("Please input your prefered language as a ISO 639 language code (e.g. `en`, `es` or `eo`)")
         lang = input("\n>")
         
         for i in range(len(lang)):
@@ -72,10 +72,11 @@ def getStory():
     else:
         print("ERROR!!:  Couldn't load language for an unexpected reason!\n\t\t\t\tPlease try again")
     
-    story = json.load(lang["STORY"])
-    ui = json.load(lang["UI"])
+    story = lang["STORY"]
+    ui = lang["UI"]
+    introText = lang["INTRO"]
 
-    return story, ui
+    return story, ui, introText
         
 
 vowels = ['a', 'e', 'i', 'o', 'u']

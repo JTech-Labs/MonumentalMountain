@@ -18,7 +18,37 @@ clear()
 name = ""
 
 #Intro
-def intro():
+def intro(introText):
+    
+    for i in range(7):
+        printSlow(introText[i])
+    time.sleep(10)
+    clear()
+
+    for i in range(3):
+        print(introText[i+7])
+
+    yesno1 = input(introText[10])
+
+    if yesno1 in introText[11]:
+        print(introText[12][0])
+    else:
+        print(introText[12][1])
+        quit()
+
+    print(introText[13])
+    print(introText[14])
+
+    name = input(introText[15])
+
+    print(f'{introText[16][0]}{name}{introText[16][1]}')
+
+    print(introText[17])
+
+    return name
+        
+
+
     printSlow("Welcome to MonumentalMountain Alpha v0.0.3 Created by GAMAX-INTERACTIVE")
     print('\n')
 
@@ -87,4 +117,7 @@ YOU HAVE BEEN WARNED!")
  what is directly in front of you.")
     print('\n')
     print('\n')
+
+
+
     return name
