@@ -5,7 +5,6 @@
 from modules import *
 from objects import *
 from intro import intro
-import linecache
 # This is MonumentalMountain Alpha v0.0.4
 # This Game Program was created by "Javier Fuentes-Hermoso"
 # MonumentalMountain is licensed under the GNU GPLv3 license by Tinfoil Hat Studios, part of the J-A-I INNOVATIONS
