@@ -12,11 +12,11 @@ from intro import intro
 #Define Items
 
 #Setup the game and intro
-def gameSetup(introText):
+def gameSetup(introText, ui):
     clear()
 
     #Ask if the user wants the introduction
-    introchoice = input(ui["warnings"]["Intro?"]).title()
+introchoice = input(ui["warnings"]["Intro?"]).title()
     if introchoice == "Y" or introchoice == "Yes": name = intro(introText)
     else:
         name = input(ui["warnings"]["Name?"])
@@ -77,15 +77,38 @@ def TildeKey(action: str,currentRoom: str,TFmsgs: bool,health: int,name: str,inv
     return msg,currentRoom,TFmsgs,health,name,inventory
 
 #Main function
-if __name__ == "__main__":
+def main():
     
+    # Manage imports
+
+    ## From `Modules` imports
+    sys,time,os,hashlib,json = m.sys, m.time, m.os, m.hashlib, m.json
+    isfile = m.isfile
+
+    ## From `Modules` implementations
+    health,protection,power,magic,inventory,PowerUps = m.health, m.protection, m.power, m.magic, m.inventory, m.PowerUps
+    sped = m.sped
+    printSlow = m.printSlow
+    clear = m.clear 
+    HashPassword = m.HashPassword
+    getStory = m.getStory
+    msg = m.msg
+
+    ## From `Objects` imports
+    randint = o.randint
+    currentRoom = o.currentRoom
+    Items = o.Items
+
+
     # Get prefered language
     story, ui, introText = getStory()
     allItems = ui["items"]
     commands = ui["commands"]
 
     #Run Game Setup and initiate variables
-    name,timer,TFmsgs = gameSetup(introText) 
+    name,timer,TFmsgs = gameSetup(introText, ui) 
+
+    
 
     #Main game loop
     while True:
@@ -459,3 +482,7 @@ if __name__ == "__main__":
         # Any other commands invalid
         else:
             msg = "Invalid command\n"
+
+
+if __name__ == "__main__":
+    main()

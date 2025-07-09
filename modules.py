@@ -79,7 +79,4 @@ def getStory():
     return story, ui, introText
         
 
-vowels = ['a', 'e', 'i', 'o', 'u']
-alphabet = "abcdefghijklmnopqrstuvwxyz"
-
 msg = ""
