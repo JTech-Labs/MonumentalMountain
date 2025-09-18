@@ -2,8 +2,8 @@
 #
 # SPDX-License-Identifier: MIT
 
-from modules import *
-from objects import *
+import modules
+import objects
 from intro import intro
 # This is MonumentalMountain Alpha v0.0.4
 # This Game Program was created by "Javier Fuentes-Hermoso"
@@ -12,11 +12,11 @@ from intro import intro
 #Define Items
 
 #Setup the game and intro
-def gameSetup(introText, ui):
+def gameSetup(introText, ui, clear):
     clear()
 
     #Ask if the user wants the introduction
-introchoice = input(ui["warnings"]["Intro?"]).title()
+    introchoice = input(ui["warnings"]["Intro?"]).title()
     if introchoice == "Y" or introchoice == "Yes": name = intro(introText)
     else:
         name = input(ui["warnings"]["Name?"])
@@ -77,7 +77,7 @@ def TildeKey(action: str,currentRoom: str,TFmsgs: bool,health: int,name: str,inv
     return msg,currentRoom,TFmsgs,health,name,inventory
 
 #Main function
-def main():
+def main(m, o):
     
     # Manage imports
 
@@ -94,10 +94,13 @@ def main():
     getStory = m.getStory
     msg = m.msg
 
+    alphabet = m.alphabet
+
     ## From `Objects` imports
     randint = o.randint
     currentRoom = o.currentRoom
     Items = o.Items
+    places = o.places
 
 
     # Get prefered language
@@ -106,7 +109,7 @@ def main():
     commands = ui["commands"]
 
     #Run Game Setup and initiate variables
-    name,timer,TFmsgs = gameSetup(introText, ui) 
+    name,timer,TFmsgs = gameSetup(introText, ui, clear) 
 
     
 
@@ -485,4 +488,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main(modules, objects)

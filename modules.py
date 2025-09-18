@@ -78,5 +78,7 @@ def getStory():
 
     return story, ui, introText
         
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+
 
 msg = ""
