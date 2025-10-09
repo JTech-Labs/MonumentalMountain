@@ -5,14 +5,14 @@ The function and workings of ~~every~~ most part of the code will be explained h
 
 ## Contents
 
-- [Perspectiva](#the-perspectiva-engine-monumentalmountain-py-monumentalmountain-py)
+- [The Perspectiva Engine](#the-perspectiva-engine-monumentalmountain-py-monumentalmountain-py)
 
 - [The JSON file](#the-json-file)
-    - [The `_` section](#the-code_code-section)
-    - [The `STORY` section](#the-codestorycode-section)
-        - [`map`](#codemapcode)
-        - [`story` (lowercase this time)](#codestorycode-lowercase-this-time)
-        - [`compass`](#codecompasscode)
+    - [The `_` section](#the-_-section)
+    - [The `STORY` section](#the-story-section)
+        - [`map`](#map)
+        - [`story` (lowercase this time)](#story-lowercase-this-time)
+        - [`compass`](#compass)
             - [Interactions](#interactions)
 
 # The Perspectiva Engine ([MonumentalMountain.py](MonumentalMountain.py))
