@@ -8,7 +8,7 @@ ___**ALL THE CODE IS MANAGED FROM THE CENTRAL REPO ON [CODEBERG](https://codeber
 
 The engine (named ___**Perspectiva**___) is written in the file [`MonumentalMountain.py`](MonumentalMountain.py). All the code is under the [MIT](LICENSES/MIT.txt). The story and everything to do with language is stored in the [`story`](story/) folder, in JSON file with the ISO name of the language. All the files in this folder :are under [CC-BY-NC](https://creativecommons.org/licenses/by-nc/4.0/).
 
-All the code is documented in the [DOCUMENTATION.md](DOCUMENTATION.md) file.
+All the code is documented in the [TechnicalDocumentation.md](TechnicalDocumentation.md) file.
 
 ## Releases
 
@@ -16,7 +16,7 @@ Please go the [releases](https://codeberg.org/JTech-Labs/MonumentalMountain/rele
 
 ## In Game
 
-Everything about the game itself, including how to play and references to anything, are in the [GAME.md](GAME.md) file.
+Everything about the game itself, including how to play and references to anything, are in the [GameDocumentation.md](GameDocumentation.md) file.
 
 ## Contributing
 
