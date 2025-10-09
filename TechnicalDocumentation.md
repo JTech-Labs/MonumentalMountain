@@ -3,7 +3,21 @@
 This docuementation is split into two main categories: the _code comments_ and [_this file_](TechnicalDocumentation.md).
 The function and workings of ~~every~~ most part of the code will be explained here, along with the purpose and design of the _JSON game files_.
 
-## The JSON file 
+## Contents
+
+- [Perspectiva](#the-perspectiva-engine-monumentalmountain-py-monumentalmountain-py)
+
+- [The JSON file](#the-json-file)
+    - [The `_` section](#the-code_code-section)
+    - [The `STORY` section](#the-codestorycode-section)
+        - [`map`](#codemapcode)
+        - [`story` (lowercase this time)](#codestorycode-lowercase-this-time)
+        - [`compass`](#codecompasscode)
+            - [Interactions](#interactions)
+
+# The Perspectiva Engine ([MonumentalMountain.py](MonumentalMountain.py))
+
+# The JSON file 
 
 This is what actually constitutes the game itself, the code is really just the engine which interprets this file and presents the story to you.
 In this section the workings and meanings of the different parts of the JSON file will be detailed as a reference.
