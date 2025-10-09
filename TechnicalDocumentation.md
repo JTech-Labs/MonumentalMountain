@@ -41,24 +41,24 @@ connections between them, but oh well, I'll come up with something beter in the 
 
 Structure:
 
- - "<Name of location>": {
-    - "Forwards": "<Place you go when you go forwards>",
+ - `"<Name of location>"`: {
+    - `"Forwards"`: `"<Place you go when you go forwards>",`
 
       This is then repeated for all the other available directions, of which you can choose any and however you want.
       Available directions: `Forwards`, `Backwards`/`Back`, `Left`, `Right`, `Upwards`/`Up`, `Downwards`/`Down`
 
-    - "Item": ["<A list of the items found there"]
+    - `"Item"`: `["<A list of the items found there"],`
 
     - (Optional)
       
-      "Req": ["<A list of the items required to enter a place"]
+      `"Req": ["<A list of the items required to enter a place"]`
 
 ### `story` (lowercase this time)
 
 This is where the big chunk happens, it is the description of each of the places which can be visited.
 The structure is very simple:
 
-"<Name of place>": "<Message to be printed>"
+`"<Name of place>": "<Message to be printed>"`
 
 ### `compass`
 
@@ -72,11 +72,11 @@ There are three different type of interactions with objects in the environment: 
 
 The structure for `talking`:
 
- - "<Name>": [
-    - "<Here you put whatever you want your thing to say>",
-    - "<You can put as many different phrases as you want (there are no dialog __options__ yet, #TODO: work on this in the future!)>",
-    - "<The last phrase you put works in a special way, it is the message given for when your thing isn't there anyomre"
- - ]
+ - `"<Name>": [`
+    - `"<Here you put whatever you want your thing to say>",`
+    - `"<You can put as many different phrases as you want (there are no dialog __options__ yet, #TODO: work on this in the future!)>",`
+    - `"<The last phrase you put works in a special way, it is the message given for when your thing isn't there anyomre"
+ - `]`
 
 Fighting works in the same way, except that the last two phrases work like this (in order):
 
