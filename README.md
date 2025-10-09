@@ -6,13 +6,13 @@ This is the repo for a text-based RPG-like adventure videogame inspired by [Colo
 
 ___**ALL THE CODE IS MANAGED FROM THE CENTRAL REPO ON [CODEBERG](https://codeberg.org/JTech-Labs/MonumentalMountain), PLEASE GO THERE FOR ANY ISSUES, PULL REQUESTS ET CETERA. ANYTHING POSTED TO ANY MIRRORS WILL NOT BE INSPECTED.**___
 
-The engine (named ___**Perspectiva**___) is written in the file [`MonumentalMountain.y`](MonumentalMountain.py). All the code is under the [MIT](LICENSES/MIT.txt). The story and everything to do with language is stored in the [`story`](story/) folder, in JSON file with the ISO name of the language. All the files in this folder are under [cc-by-nc](https://creativecommons.org/licenses/by-nc/4.0/).
+The engine (named ___**Perspectiva**___) is written in the file [`MonumentalMountain.py`](MonumentalMountain.py). All the code is under the [MIT](LICENSES/MIT.txt). The story and everything to do with language is stored in the [`story`](story/) folder, in JSON file with the ISO name of the language. All the files in this folder :are under [CC-BY-NC](https://creativecommons.org/licenses/by-nc/4.0/).
 
 All the code is documented in the [DOCUMENTATION.md](DOCUMENTATION.md) file.
 
 ## Releases
 
-Please go the releases on codeberg.org
+Please go the [releases](https://codeberg.org/JTech-Labs/MonumentalMountain/releases) on codeberg.org
 
 ## In Game
 
@@ -27,4 +27,6 @@ To contribute you can do anything from starring any of the mirror repos (or the 
 Please do enjoy!
 
 
-`All source code under the MIT licence. Everything in the story/ `
+`All source code under the MIT licence`
+
+`Everything in the story folder under CC-BY-NC`
