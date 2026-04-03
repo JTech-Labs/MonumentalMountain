@@ -14,7 +14,7 @@ All the code is documented in the [TechnicalDocumentation.md](TechnicalDocumenta
 
 Please go the [releases](https://codeberg.org/JTech-Labs/MonumentalMountain/releases) on codeberg.org
 
-## In Game 
+## In Game
 
 Everything about the game itself, including how to play and references to anything, are in the [GameDocumentation.md](GameDocumentation.md) file.
 
